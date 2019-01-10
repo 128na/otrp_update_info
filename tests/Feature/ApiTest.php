@@ -68,7 +68,7 @@ class ApiTest extends TestCase
 
         // 不正なトークンのpostで404を返す
         $data = [
-            'toekn' => '334',
+            'token' => '334',
             'api_version' => '1',
             'data'  => ['hoge' => 'fuga'],
         ];
@@ -77,7 +77,7 @@ class ApiTest extends TestCase
 
         // 適切なトークンのpostで200を返す
         $data = [
-            'toekn'   => config('app.api.token'),
+            'token'   => config('app.api.token'),
             'version' => '1',
             'data'    => json_encode($api_data),
         ];
@@ -92,7 +92,7 @@ class ApiTest extends TestCase
 
         // api version違い
         $data = [
-            'toekn'   => config('app.api.token'),
+            'token'   => config('app.api.token'),
             'version' => '2',
             'data'    => json_encode($api_data),
         ];

@@ -15,7 +15,7 @@ class ApiController extends Controller
     {
         // トークンチェック
         $valid_token = config('app.api.token', false);
-        abort_unless($valid_token && $request->input('toekn') === $valid_token, 404);
+        abort_unless($valid_token && $request->input('token') === $valid_token, 404);
 
         $data = $request->input('data');
         $api  = $request->input('version', 1);
