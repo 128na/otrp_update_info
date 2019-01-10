@@ -1,22 +1,33 @@
 <template>
   <div>
-    <version-component
-      v-for="version in versions"
-      :key="version.id"
-      :info="relatedUpdateInfo(version)"
-      :tags="tags"
-      :versions="versions"
-    />
+    <ul>
+      <item-component v-for="item in filtertedData" :key="item.id" :item="item"/>
+    </ul>
   </div>
 </template>
 <script>
 export default {
   data() {
     return {
-      tags: window.data.tags || [],
-      versions: window.data.versions || [],
-      update_info: window.data.update_info || []
+      data: window.data
     };
+  },
+  // async created() {
+  //   const res = await axios.get("/storage/1/data.json");
+  //   console.log(res.data);
+  //   this.data = data;
+  // },
+  computed: {
+    filtertedData() {
+      return this.data;
+    }
   }
 };
 </script>
+<style>
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+</style>
