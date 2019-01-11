@@ -1,7 +1,7 @@
 <template>
   <el-container>
     <el-header>
-      <h1>OTRP 更新情報一覧</h1>
+      <h1>OTRP 更新情報</h1>
       <span>最終更新 {{ last_modified }}</span>
     </el-header>
     <el-container class="main">
@@ -37,7 +37,19 @@
         <div v-else>ないです</div>
       </el-main>
     </el-container>
-    <el-footer>foooot</el-footer>
+    <el-footer>
+      <span>
+        Created by
+        <a href="https://twitter.com/128Na" target="_blank">@128Na</a>
+      </span>
+      <span>
+        GitHub :
+        <a
+          href="https://github.com/128na/otrp_update_info"
+          target="_blank"
+        >https://github.com/128na/otrp_update_info</a>
+      </span>
+    </el-footer>
   </el-container>
 </template>
 <script>
@@ -50,11 +62,6 @@ export default {
       selected_tag: null
     };
   },
-  // async created() {
-  //   const res = await axios.get("/storage/1/data.json");
-  //   console.log(res.data);
-  //   this.data = data;
-  // },
   computed: {
     filtertedVersions() {
       // 元データの参照を切る
@@ -81,7 +88,6 @@ export default {
         : versions;
     },
     filterBySearchText(versions) {
-      console.log(versions);
       return this.search_text
         ? versions
             .map(v => {
@@ -138,6 +144,7 @@ h2 {
   padding: 1rem 0 1rem 1rem;
 }
 .el-footer {
+  padding: 1rem;
   background-color: #fff;
   border-top: solid 1px #ccc;
 }
