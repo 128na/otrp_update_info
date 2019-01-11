@@ -1,9 +1,19 @@
 <template>
-  <div>
-    <ul>
-      <item-component v-for="item in filtertedData" :key="item.id" :item="item"/>
-    </ul>
-  </div>
+  <el-container>
+    <el-header>Header</el-header>
+    <el-container>
+      <el-aside width="200px">
+        <ul>
+          <tag-component v-for="item in tags" :key="item.id" :item="item"/>
+        </ul>
+      </el-aside>
+      <el-main>
+        <ul>
+          <item-component v-for="item in filtertedData" :key="item.id" :item="item"/>
+        </ul>
+      </el-main>
+    </el-container>
+  </el-container>
 </template>
 <script>
 export default {
@@ -20,6 +30,12 @@ export default {
   computed: {
     filtertedData() {
       return this.data;
+    },
+    tags() {
+      const tags = this.data.map(v => v.update_info.map(i => i.tags)).flat(2);
+      console.log(tags);
+
+      return [];
     }
   }
 };

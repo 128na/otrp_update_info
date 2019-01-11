@@ -3398,6 +3398,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3412,6 +3422,15 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     filtertedData: function filtertedData() {
       return this.data;
+    },
+    tags: function tags() {
+      var tags = this.data.map(function (v) {
+        return v.update_info.map(function (i) {
+          return i.tags;
+        });
+      }).flat(2);
+      console.log(tags);
+      return [];
     }
   }
 });
@@ -85600,15 +85619,45 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "ul",
-      _vm._l(_vm.filtertedData, function(item) {
-        return _c("item-component", { key: item.id, attrs: { item: item } })
-      }),
-      1
-    )
-  ])
+  return _c(
+    "el-container",
+    [
+      _c("el-header", [_vm._v("Header")]),
+      _vm._v(" "),
+      _c(
+        "el-container",
+        [
+          _c("el-aside", { attrs: { width: "200px" } }, [
+            _c(
+              "ul",
+              _vm._l(_vm.tags, function(item) {
+                return _c("tag-component", {
+                  key: item.id,
+                  attrs: { item: item }
+                })
+              }),
+              1
+            )
+          ]),
+          _vm._v(" "),
+          _c("el-main", [
+            _c(
+              "ul",
+              _vm._l(_vm.filtertedData, function(item) {
+                return _c("item-component", {
+                  key: item.id,
+                  attrs: { item: item }
+                })
+              }),
+              1
+            )
+          ])
+        ],
+        1
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

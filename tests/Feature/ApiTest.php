@@ -33,30 +33,37 @@ class ApiTest extends TestCase
             ['id' => 3, 'version' => 1, 'tags' => [2], 'content' => 'ccc'],
           ]
         ];
-        $converted_data = json_encode([
-          [
-            'id' => 1, 'version' => '123', 'released_at' => '2019-01-01 12:34:56', 'url' => 'http://example.com',
-            'update_info' => [
-              ['id' => 1, 'version' => 1, 'tags' => [
-                ['id' => 1, 'name' => 'tag1'],
-                ['id' => 2, 'name' => 'tag2']
-              ], 'content' => 'aaa'],
-              ['id' => 3, 'version' => 1, 'tags' => [
-                ['id' => 2, 'name' => 'tag2']
-              ], 'content' => 'ccc'],
+        $converted_data = [
+          'versions' => [
+            [
+              'id' => 1, 'version' => '123', 'released_at' => '2019-01-01 12:34:56', 'url' => 'http://example.com',
+              'update_info' => [
+                ['id' => 1, 'version' => 1, 'tags' => [
+                  ['id' => 1, 'name' => 'tag1'],
+                  ['id' => 2, 'name' => 'tag2']
+                ], 'content' => 'aaa'],
+                ['id' => 3, 'version' => 1, 'tags' => [
+                  ['id' => 2, 'name' => 'tag2']
+                ], 'content' => 'ccc'],
+              ],
+            ],
+            [
+              'id' => 2, 'version' => '456', 'released_at' => '2019-01-01 12:34:56', 'url' => 'http://hoge.com',
+              'update_info' => [
+                ['id' => 2, 'version' => 2, 'tags' => [], 'content' => 'bbb'],
+              ],
+            ],
+            [
+              'id' => 3, 'version' => '789', 'released_at' => '2019-01-01 12:34:56', 'url' => 'http://fuga.com',
+              'update_info' => [],
             ],
           ],
-          [
-            'id' => 2, 'version' => '456', 'released_at' => '2019-01-01 12:34:56', 'url' => 'http://hoge.com',
-            'update_info' => [
-              ['id' => 2, 'version' => 2, 'tags' => [], 'content' => 'bbb'],
-            ],
+          'tags' => [
+            ['id' => 1, 'name' => 'tag1'],
+            ['id' => 2, 'name' => 'tag2'],
+            ['id' => 3, 'name' => 'tag3'],
           ],
-          [
-            'id' => 3, 'version' => '789', 'released_at' => '2019-01-01 12:34:56', 'url' => 'http://fuga.com',
-            'update_info' => [],
-          ],
-        ]);
+        ];
 
         // getで405を返す
         $response = $this->get($entrypoint);

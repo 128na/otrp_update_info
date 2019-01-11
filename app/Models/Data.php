@@ -39,7 +39,7 @@ class Data
         ->values();
       return $version;
     });
-    return $versions;
+    return ['versions' => $versions, 'tags' => $tags];
   }
 
 }
