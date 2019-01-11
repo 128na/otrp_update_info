@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "element-ui": "^2.4.11",
+        "luxon": "^1.10.0",
         "vue-bus": "^1.2.0"
     }
 }

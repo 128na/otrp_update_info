@@ -11,6 +11,7 @@ class MainController extends Controller
     public function index()
     {
         $data = Data::get(1);
-        return view('index', compact('data'));
+        $last_modified = Data::lastModified(1);
+        return view('index', compact('data', 'last_modified'));
     }
 }

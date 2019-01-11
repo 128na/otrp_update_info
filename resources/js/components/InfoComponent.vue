@@ -21,7 +21,7 @@ export default {
   margin: 0 0 0 1rem;
 }
 .content {
-  white-space: pre;
+  white-space: pre-wrap;
 }
 </style>
 

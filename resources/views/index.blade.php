@@ -9,6 +9,7 @@
 </head>
 <body>
     <script>
+        window.last_modified = @json($last_modified->format('Y/m/d H:i:s'));
         window.data = @json($data);
     </script>
     <div id="app"></div>

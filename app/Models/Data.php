@@ -2,18 +2,42 @@
 namespace App\Models;
 
 use Illuminate\Support\Facades\Storage;
+use Carbon\Carbon;
 
 class Data
 {
+  /**
+   * ストレージからjson文字列を取得し、配列に変換して返す
+   * @param string|int $api
+   * @return array
+   */
   public static function get($api = 1)
   {
-    return json_decode(Storage::disk('public')->get("{$api}/data.json"), true);
+    return json_decode(Storage::disk('public')->get(static::getFilename($api)), true);
   }
+  /**
+   * json文字列を加工、ストレージに保存する
+   * @param array $data
+   * @param string|int $api
+   */
   public static function put($data, $api = 1)
   {
     $data = json_decode($data, true);
     $data = static::convertData($data);
-    return Storage::disk('public')->put("{$api}/data.json",json_encode($data));
+    return Storage::disk('public')->put(static::getFilename($api), json_encode($data));
+  }
+  /**
+   * 最終更新日を取得する
+   */
+  public static function lastModified($api = 1)
+  {
+    $timestamp = Storage::disk('public')->lastModified(static::getFilename($api));
+    return Carbon::createFromTimestamp($timestamp);
+  }
+
+  private static function getFilename($api)
+  {
+    return "{$api}/data.json";
   }
 
   private static function convertData($data)
@@ -39,7 +63,11 @@ class Data
         ->values();
       return $version;
     });
-    return ['versions' => $versions, 'tags' => $tags];
-  }
 
+    $data = [
+      'versions'   => $versions,
+      'tags'       => $tags,
+    ];
+    return $data;
+  }
 }

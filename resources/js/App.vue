@@ -2,6 +2,7 @@
   <el-container>
     <el-header>
       <h1>OTRP 更新情報一覧</h1>
+      <span>最終更新 {{ last_modified }}</span>
     </el-header>
     <el-container class="main">
       <el-aside width="200px">
@@ -36,6 +37,7 @@
         <div v-else>ないです</div>
       </el-main>
     </el-container>
+    <el-footer>foooot</el-footer>
   </el-container>
 </template>
 <script>
@@ -43,6 +45,7 @@ export default {
   data() {
     return {
       data: window.data,
+      last_modified: window.last_modified,
       search_text: "",
       selected_tag: null
     };
@@ -124,12 +127,19 @@ h2 {
 .el-header {
   background-color: #fff;
   border-bottom: solid 1px #ccc;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
 }
 .el-main {
   padding: 1rem;
 }
 .el-aside {
   padding: 1rem 0 1rem 1rem;
+}
+.el-footer {
+  background-color: #fff;
+  border-top: solid 1px #ccc;
 }
 .el-button {
   margin-right: 8px;
