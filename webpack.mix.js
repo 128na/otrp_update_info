@@ -12,5 +12,7 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css')
-    .version();
+  .sass('resources/sass/app.scss', 'public/css')
+  .copy('node_modules/element-ui/lib/theme-chalk/fonts/element-icons.woff',
+    'public/fonts/vendor/element-ui/lib/theme-chalk/element-icons.woff')
+  .version();
