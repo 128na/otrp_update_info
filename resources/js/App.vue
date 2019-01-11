@@ -107,8 +107,15 @@ export default {
     }
   },
   mounted() {
+    this.$gtm.trackView("Top", window.location.href);
     this.$bus.on("tag_selected", tag => {
       this.selected_tag = tag;
+      this.$gtm.trackEvent({
+        category: "Tag",
+        action: "select",
+        label: "Tag selcted",
+        value: tag.name
+      });
     });
   }
 };

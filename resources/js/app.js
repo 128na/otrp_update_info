@@ -15,6 +15,14 @@ window.Vue = require('vue');
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import VueBus from 'vue-bus';
+import VueGtm from 'vue-gtm';
+
+Vue.use(VueGtm, {
+  id: 'GTM-PWX7Q7S',
+  enabled: true,
+  debug: false,
+});
+
 
 import App from './App.vue';
 
