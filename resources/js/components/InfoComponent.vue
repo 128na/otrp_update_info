@@ -1,10 +1,10 @@
 <template>
-  <div class="box">
+  <li class="box">
     <span class="content">{{ info.content }}</span>
     <span>
       <tag-component v-for="tag in info.tags" :tag="tag" :key="tag.id"></tag-component>
     </span>
-  </div>
+  </li>
 </template>
 <script>
 export default {

@@ -4,8 +4,8 @@
       <h1>OTRP 更新情報</h1>
       <span>最終更新 {{ last_modified }}</span>
     </el-header>
-    <el-container class="main">
-      <el-aside width="200px">
+    <el-container id="main">
+      <el-aside>
         <div class="box">
           <h2>キーワード</h2>
           <el-input placeholder="検索" v-model="search_text" class="input-with-select">
@@ -31,7 +31,7 @@
           >keyword:{{ search_text }}</el-tag>
           <tag-component v-if="selected_tag" @close="removeTag" :tag="selected_tag" :list="false"></tag-component>
         </h2>
-        <ul v-if="hasVersions">
+        <ul v-if="hasVersions" class="item-list">
           <item-component v-for="item in filtertedVersions" :key="item.id" :item="item"/>
         </ul>
         <div v-else>ないです</div>
@@ -121,6 +121,9 @@ export default {
 };
 </script>
 <style>
+a {
+  word-break: break-all;
+}
 ul {
   margin: 0;
   padding: 0;
@@ -143,6 +146,7 @@ h2 {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 .el-main {
   padding: 1rem;
@@ -175,5 +179,25 @@ h2 {
   color: #fff;
   background-color: hsl(0, 50%, 50%);
   border-color: hsl(0, 50%, 40%);
+}
+
+@media only screen and (max-width: 768px) {
+  #main {
+    display: flex;
+    flex-direction: column;
+  }
+  .el-header {
+    height: auto !important;
+    justify-content: center;
+  }
+  .el-aside {
+    width: 100% !important;
+    padding: 1rem;
+  }
+  .item-list,
+  .box {
+    display: flex;
+    flex-direction: column;
+  }
 }
 </style>

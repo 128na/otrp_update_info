@@ -1,5 +1,5 @@
 <template>
-  <li>
+  <li class="item">
     <span>[v{{ item.version }}]</span>
     <span>{{ releasedAt }}</span>
     <span>
@@ -29,7 +29,7 @@ export default {
 };
 </script>
 <style scoped>
-li {
+.item {
   border-bottom: solid 1px #ccc;
   margin-bottom: 0.5rem;
 }
