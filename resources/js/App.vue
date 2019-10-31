@@ -1,7 +1,13 @@
 <template>
-  <el-container>
+  <el-container id="app">
     <el-header>
       <h1>OTRP 更新情報</h1>
+      <a
+        href="https://github.com/teamhimeh/simutrans/blob/OTRP-distribute/documentation/OTRP_v13_information.md"
+        target="_blank"
+        rel="noopener"
+      >Document</a>
+      <a href="https://osdn.net/projects/otrp/" target="_blank" rel="noopener">Download OTRP</a>
       <span>最終更新 {{ last_modified }}</span>
     </el-header>
     <el-container id="main">
@@ -15,7 +21,7 @@
         <div class="box">
           <h2>タグ一覧</h2>
           <ul class="tags">
-            <tag-component v-for="tag in data.tags" :key="tag.id" :tag="tag"/>
+            <tag-component v-for="tag in data.tags" :key="tag.id" :tag="tag" />
           </ul>
         </div>
       </el-aside>
@@ -32,7 +38,7 @@
           <tag-component v-if="selected_tag" @close="removeTag" :tag="selected_tag" :list="false"></tag-component>
         </h2>
         <ul v-if="hasVersions" class="item-list">
-          <item-component v-for="item in filtertedVersions" :key="item.id" :item="item"/>
+          <item-component v-for="item in filtertedVersions" :key="item.id" :item="item" />
         </ul>
         <div v-else>ないです</div>
       </el-main>
@@ -40,7 +46,7 @@
     <el-footer>
       <span>
         Created by
-        <a href="https://twitter.com/128Na" target="_blank">@128Na</a>
+        <a href="https://twitter.com/128Na" target="_blank" rel="noopener">@128Na</a>
       </span>
       <span>
         GitHub :
@@ -120,7 +126,7 @@ export default {
   }
 };
 </script>
-<style>
+<style lang="scss" scoped>
 a {
   word-break: break-all;
 }
@@ -137,6 +143,9 @@ h2 {
   font-size: 1.2rem;
   line-height: 2.4rem;
 }
+#app {
+  min-height: 100vh;
+}
 .box {
   margin-bottom: 1rem;
 }
@@ -147,6 +156,13 @@ h2 {
   align-items: baseline;
   justify-content: space-between;
   flex-wrap: wrap;
+  a {
+    margin: 0 1rem;
+  }
+  span {
+    text-align: right;
+    flex: 1;
+  }
 }
 .el-main {
   padding: 1rem;

@@ -3,7 +3,7 @@
     <span>[v{{ item.version }}]</span>
     <span>{{ releasedAt }}</span>
     <span>
-      <a :href="item.url" target="_blank">{{ item.url }}</a>
+      <a :href="item.url" target="_blank" rel="noopener">{{ item.url }}</a>
     </span>
     <ul>
       <info-component v-for="info in item.update_info" :info="info" :key="info.id"></info-component>
