@@ -205,6 +205,16 @@ h2 {
   .el-header {
     height: auto !important;
     justify-content: center;
+    flex-direction: column;
+    a {
+      margin: 0 0.2rem;
+    }
+    span {
+      text-align: right;
+    }
+    h1 {
+      align-self: center;
+    }
   }
   .el-aside {
     width: 100% !important;
