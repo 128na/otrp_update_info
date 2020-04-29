@@ -12,22 +12,29 @@ window.Vue = require('vue');
 /**
  * import dependencies
  */
-import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
-import VueBus from 'vue-bus';
-import VueGtm from 'vue-gtm';
+import {
+  BootstrapVue,
+  BIcon,
+  BIconBoxArrowUpRight,
+  BIconCaretUpFill,
+  BIconCaretDownFill
+} from 'bootstrap-vue'
+Vue.use(BootstrapVue);
+Vue.use(BootstrapVue);
+Vue.component('BIcon', BIcon);
+Vue.component('BIconBoxArrowUpRight', BIconBoxArrowUpRight);
+Vue.component('BIconCaretUpFill', BIconCaretUpFill);
+Vue.component('BIconCaretDownFill', BIconCaretDownFill);
 
+import VueBus from 'vue-bus';
+Vue.use(VueBus);
+
+import VueGtm from 'vue-gtm';
 Vue.use(VueGtm, {
   id: 'GTM-PWX7Q7S',
   enabled: true,
   debug: false,
 });
-
-
-import App from './App.vue';
-
-Vue.use(VueBus);
-Vue.use(ElementUI);
 
 const files = require.context('./', true, /\.vue$/i)
 files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
@@ -35,6 +42,7 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
 /**
  * run app
  */
+import App from './App.vue';
 const app = new Vue({
   el: '#app',
   render: h => h(App)

@@ -1,9 +1,16 @@
-
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
-
 // Variables
-@import 'variables';
+@import "variables";
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap";
+@import "~bootstrap-vue";
+
+.menu-header {
+  border-top: solid 4px var(--primary);
+}
+.btn-xs {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1.1;
+  border-radius: 0.2rem;
+}
