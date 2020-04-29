@@ -26,9 +26,6 @@ Vue.component('BIconBoxArrowUpRight', BIconBoxArrowUpRight);
 Vue.component('BIconCaretUpFill', BIconCaretUpFill);
 Vue.component('BIconCaretDownFill', BIconCaretDownFill);
 
-import VueBus from 'vue-bus';
-Vue.use(VueBus);
-
 import VueGtm from 'vue-gtm';
 Vue.use(VueGtm, {
   id: 'GTM-PWX7Q7S',

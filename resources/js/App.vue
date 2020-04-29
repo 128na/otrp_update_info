@@ -44,6 +44,7 @@ export default {
     this.last_modified = window.last_modified;
   },
   mounted() {
+    this.$gtm.trackView("Top", window.location.href);
     this.$root.$on("bv::collapse::state", (id, state) => {
       switch (id) {
         case "menu-tags":
