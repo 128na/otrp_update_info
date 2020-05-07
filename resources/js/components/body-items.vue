@@ -1,6 +1,10 @@
 <template>
-  <div v-if="versions.length">
-    <div v-for="version in versions" :key="version.id" class="mx-n3 px-3 p-2 border-bottom item">
+  <transition-group name="list-complete">
+    <div
+      v-for="version in versions"
+      :key="version.id"
+      class="mx-n3 px-3 p-2 border-bottom item list-complete-item"
+    >
       <div class="mb-1">
         <strong>v{{version.version}}</strong>
         <span>{{version.released_at}}</span>
@@ -24,8 +28,8 @@
         </div>
       </div>
     </div>
-  </div>
-  <div v-else class="my-2">該当なし</div>
+    <div v-if="!versions.length" class="my-2" key="none">該当なし</div>
+  </transition-group>
 </template>
 <script>
 export default {
@@ -53,5 +57,17 @@ export default {
   &:hover {
     background-color: var(--light);
   }
+}
+.list-complete-item {
+  transition: all 0.5s;
+  background-color: var(--white);
+}
+.list-complete-enter,
+.list-complete-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
+.list-complete-leave-active {
+  position: absolute;
 }
 </style>
