@@ -41,9 +41,3 @@ php artisan view:cache
 php artisan event:cache
 # ルートをキャッシュするとトップが405になる不具合
 php artisan route:clear
-
-echo ""
-echo "|--------------------------------------------------------------------------"
-echo "| migration status."
-echo "|--------------------------------------------------------------------------"
-php artisan migrate:status
