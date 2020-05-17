@@ -7,14 +7,14 @@
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <b-nav-item>
+          <b-nav-text class="px-2">
             <external-link
               href="https://github.com/teamhimeh/simutrans/blob/OTRP-distribute/documentation/OTRP_v13_information.md"
             >Document</external-link>
-          </b-nav-item>
-          <b-nav-item>
+          </b-nav-text>
+          <b-nav-text class="px-2">
             <external-link href="https://osdn.net/projects/otrp/">Download OTRP</external-link>
-          </b-nav-item>
+          </b-nav-text>
         </b-navbar-nav>
 
         <b-navbar-nav class="ml-auto">
