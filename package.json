@@ -11,17 +11,17 @@
   },
   "devDependencies": {
     "bootstrap": "^4.5.0",
-    "bootstrap-vue": "^2.14.0",
+    "bootstrap-vue": "^2.15.0",
     "cross-env": "^5.2.1",
     "jquery": "^3.5.1",
     "laravel-mix": "^4.1.4",
     "luxon": "^1.24.1",
     "popper.js": "^1.16.1",
     "resolve-url-loader": "^2.3.2",
-    "sass": "^1.26.5",
+    "sass": "^1.26.8",
     "sass-loader": "^7.3.1",
     "vue": "^2.6.11",
-    "vue-gtm": "^2.2.0",
+    "vue-gtm": "^2.3.0",
     "vue-template-compiler": "^2.6.11"
   },
   "dependencies": {}
