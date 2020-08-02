@@ -10,5 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', 'MainController@index')->name('idnex');
+Route::middleware(['cache.headers:public;max_age=3600'])->group(function () {
+    Route::get('/', 'MainController@index')->name('idnex');
+});
