@@ -11,3 +11,7 @@
 |
  */
 Route::post('receiver', 'Api\ApiController@receiver')->name('api.receiver');
+
+Route::middleware(['cache.headers:public;max_age=3600'])->group(function () {
+    Route::get('v1/update-info', 'Api\ApiController@index');
+});

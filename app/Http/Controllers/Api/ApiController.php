@@ -19,8 +19,13 @@ class ApiController extends Controller
         abort_unless($request->input('token') === $valid_token, 404, 'invalid token');
 
         $data = $request->input('data');
-        $api = $request->input('version', 1);
+        $version = $request->input('version', 1);
 
-        Data::put($data, $api);
+        Data::put($data, $version);
+    }
+    public function index()
+    {
+        $version = 1;
+        return Data::getFile($version);
     }
 }

@@ -2,16 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Data;
-
 class MainController extends Controller
 {
-    //
     public function index()
     {
-        $data = Data::get(1);
-        $last_modified = Data::lastModified(1);
-        return view('index', compact('data', 'last_modified'));
+        return view('index');
     }
 }
