@@ -22,6 +22,7 @@
   </main>
 </template>
 <script>
+import axios from "axios";
 import { DateTime } from "luxon";
 export default {
   data() {
@@ -32,16 +33,11 @@ export default {
       word: "",
       selected: [],
       visible_tags: true,
-      visible_search: false
+      visible_search: false,
     };
   },
   created() {
-    this.tags = window.data.tags;
-    this.versions = window.data.versions.map(version => {
-      version.released_at = DateTime.fromISO(version.released_at).toISODate();
-      return version;
-    });
-    this.last_modified = window.last_modified;
+    this.fetch();
   },
   mounted() {
     this.$gtm.trackView("Top", window.location.href);
@@ -55,34 +51,50 @@ export default {
     });
   },
   methods: {
+    async fetch() {
+      const res = await axios
+        .get("./api/v1/update-info")
+        .catch((e) => console.log("api failed"));
+      console.log(res);
+
+      if (res && res.status === 200) {
+        this.tags = res.data.tags;
+        this.versions = res.data.versions.map((v) =>
+          Object.assign(v, {
+            released_at: DateTime.fromISO(v.released_at).toISODate(),
+          })
+        );
+        this.last_modified = res.data.last_modified_at;
+      }
+    },
     filterBySelected(versions) {
       return versions
-        .map(version =>
+        .map((version) =>
           Object.assign({}, version, {
-            update_info: version.update_info.filter(info =>
-              this.selected.every(tag_id =>
-                info.tags.find(tag => tag.id == tag_id)
+            update_info: version.update_info.filter((info) =>
+              this.selected.every((tag_id) =>
+                info.tags.find((tag) => tag.id == tag_id)
               )
-            )
+            ),
           })
         )
-        .filter(version => version.update_info.length);
+        .filter((version) => version.update_info.length);
     },
     filterByWord(versions) {
       return versions
-        .map(version =>
+        .map((version) =>
           Object.assign({}, version, {
-            update_info: version.update_info.filter(info =>
+            update_info: version.update_info.filter((info) =>
               info.content.includes(this.word)
-            )
+            ),
           })
         )
-        .filter(version => version.update_info.length);
+        .filter((version) => version.update_info.length);
     },
     handleClear() {
       this.word = "";
       this.selected = [];
-    }
+    },
   },
   computed: {
     filtered_versions() {
@@ -94,8 +106,8 @@ export default {
         versions = this.filterByWord(versions);
       }
       return versions;
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>

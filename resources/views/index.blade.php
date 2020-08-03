@@ -23,10 +23,6 @@
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-  <script>
-    window.last_modified = @json($last_modified->format('Y/m/d H:i:s'));
-    window.data = @json($data);
-  </script>
   <div id="app"></div>
   <script src="{{ asset('js/app.js') }}" defer></script>
 </body>

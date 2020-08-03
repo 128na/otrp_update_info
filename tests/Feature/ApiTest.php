@@ -62,6 +62,7 @@ class ApiTest extends TestCase
                 ['id' => 2, 'name' => 'tag2'],
                 ['id' => 3, 'name' => 'tag3'],
             ],
+            'last_modified_at' => now()->format('Y-m-d H:i:s'),
         ];
 
         // getで405を返す
