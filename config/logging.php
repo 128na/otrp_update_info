@@ -36,7 +36,7 @@ return [
     'channels' => [
         'stack' => [
             'driver' => 'stack',
-            'channels' => ['daily'],
+            'channels' => ['daily', 'slack'],
         ],
 
         'single' => [
@@ -55,9 +55,9 @@ return [
         'slack' => [
             'driver' => 'slack',
             'url' => env('LOG_SLACK_WEBHOOK_URL'),
-            'username' => 'Laravel Log',
+            'username' => 'OTRP update info',
             'emoji' => ':boom:',
-            'level' => 'critical',
+            'level' => 'info',
         ],
 
         'papertrail' => [
