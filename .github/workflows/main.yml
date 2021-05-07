@@ -61,16 +61,19 @@ jobs:
           username: ${{ secrets.USER }}
           privateKey: /home/runner/.ssh/id_rsa
 
-      - name: rsync public dir
-        uses: trendyminds/github-actions-rsync@master
-        with:
-          RSYNC_OPTIONS: -ahvzr --delete --exclude node_modules --exclude '.git*' --exclude 'storage'
-          RSYNC_TARGET: ${{ secrets.APP_DIR }}/public
-          RSYNC_SOURCE: /public/
-        env:
-          SSH_PRIVATE_KEY: ${{secrets.SSH_KEY}}
-          SSH_USERNAME: ${{secrets.USER}}
-          SSH_HOSTNAME: ${{secrets.HOST}}
+      - name: rsync manual
+        run: rsync -ahvzr --delete --exclude 'storage' -e 'ssh -i /home/runner/.ssh/id_rsa -o StrictHostKeyChecking=no' ${{GITHUB_WORKSPACE}}/public ${{ secrets.USER }}@${{ secrets.HOST }}:${{ secrets.APP_DIR }}/public
+
+      # - name: rsync public dir
+      #   uses: trendyminds/github-actions-rsync@master
+      #   with:
+      #     RSYNC_OPTIONS: -ahvzr --delete --exclude node_modules --exclude '.git*' --exclude 'storage'
+      #     RSYNC_TARGET: ${{ secrets.APP_DIR }}/public
+      #     RSYNC_SOURCE: /public/
+      #   env:
+      #     SSH_PRIVATE_KEY: ${{secrets.SSH_KEY}}
+      #     SSH_USERNAME: ${{secrets.USER}}
+      #     SSH_HOSTNAME: ${{secrets.HOST}}
 
   test:
     # 手動実行かつスキップ指定された時のみスキップ
