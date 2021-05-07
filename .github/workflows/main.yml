@@ -65,7 +65,7 @@ jobs:
         uses: trendyminds/github-actions-rsync@master
         with:
           RSYNC_OPTIONS: -ahvzr --delete --exclude 'storage'
-          RSYNC_TARGET: ~/app/otrp_update_info/public
+          RSYNC_TARGET: ~/app/hoge/public
           RSYNC_SOURCE: /public/
         env:
           SSH_PRIVATE_KEY: ${{secrets.SSH_KEY}}
