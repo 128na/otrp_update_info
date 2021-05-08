@@ -1,5 +1,5 @@
 # OTRP 更新情報
-https://simutrans.sakura.ne.jp/otrp_update_info/
+https://otrp-info.128-bit.net
 
 # 概要
 OTRPの更新情報を一覧表示するページ、APIです。
@@ -12,6 +12,6 @@ OTRPの更新情報を一覧表示するページ、APIです。
 
 ## API
 ### 更新情報一覧取得
-https://simutrans.sakura.ne.jp/otrp_update_info/api/v1/update-info
+https://otrp-info.128-bit.net/api/v1/update-info
 
 更新情報、タグ一覧、最終更新日を含むデータを取得します。
