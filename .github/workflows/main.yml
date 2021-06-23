@@ -104,8 +104,8 @@ jobs:
           command: cd ${{ secrets.APP_DIR }}
             && git fetch -p
             && git checkout ${{ env.github.ref }}
-            && php -c composer install --optimize-autoloader --no-dev
-            && php -c artisan optimize
+            && php composer install --optimize-autoloader --no-dev
+            && php artisan optimize
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           privateKey: /home/runner/.ssh/id_rsa
