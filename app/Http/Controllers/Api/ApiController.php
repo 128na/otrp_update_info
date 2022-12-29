@@ -23,9 +23,11 @@ class ApiController extends Controller
 
         Data::put($data, $version);
     }
+
     public function index()
     {
         $version = 1;
+
         return Data::getFile($version);
     }
 }
