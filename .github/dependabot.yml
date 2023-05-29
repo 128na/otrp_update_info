@@ -9,6 +9,10 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    ignore:
+      - dependency-name: "vue"
+        # v3アップデートは改修が必要
+        versions: ["3.x"]
     reviewers:
       - "128na"
   - package-ecosystem: "composer"
