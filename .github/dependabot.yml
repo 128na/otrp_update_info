@@ -11,11 +11,14 @@ updates:
       interval: "weekly"
     ignore:
       - dependency-name: "vue"
+        update-types: ["version-update:semver-major"]
         # v3アップデートは改修が必要
-        versions: ["3.x"]
+      - dependency-name: "vue-loader"
+        # vueバージョンに依存
+        update-types: ["version-update:semver-major"]
       - dependency-name: "bootstrap"
         # v5アップデートは改修が必要
-        versions: ["5.x"]
+        update-types: ["version-update:semver-major"]
     reviewers:
       - "128na"
   - package-ecosystem: "composer"
