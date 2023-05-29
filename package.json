@@ -14,7 +14,7 @@
     "bootstrap": "^4.6.0",
     "bootstrap-vue": "^2.21.0",
     "cross-env": "^7",
-    "jquery": "^3.5.1",
+    "jquery": "^3.7.0",
     "laravel-mix": "^6",
     "luxon": "^1.28.1",
     "popper.js": "^1.16.1",
