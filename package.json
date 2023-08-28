@@ -16,7 +16,7 @@
     "cross-env": "^7",
     "jquery": "^3.7.1",
     "laravel-mix": "^6",
-    "luxon": "^3.4.0",
+    "luxon": "^3.4.2",
     "popper.js": "^1.16.1",
     "resolve-url-loader": "^5",
     "sass": "^1.66.1",
