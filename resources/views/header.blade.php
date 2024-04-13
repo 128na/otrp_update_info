@@ -24,7 +24,7 @@
                     </li>
                     <li>
                         <a
-                            href="https://simutrans-intro.notion.site/API-2cbb6813417b4b2f80c27392b4d6b3d2#3a08260b0bdd4f9ab6f887123704332e"
+                            href="https://simutrans-intro.notion.site/API-2cbb6813417b4b2f80c27392b4d6b3d2#872c99c1ada5489a802bd6c2ae7c382b"
                             target="_blank"
                             rel="noopener noreferrer"
                             class="block p-2 text-gray-700 dark:text-white"

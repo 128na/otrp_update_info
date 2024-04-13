@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
-use App\Actions\Info\SaveJson;
+use App\Actions\Info\LoadJson;
+use App\Actions\Info\PutJson;
 use App\Actions\Info\Sheet\GetTags;
 use App\Actions\Info\Sheet\GetUpdateInfos;
 use App\Actions\Info\Sheet\GetVersions;
@@ -32,7 +33,8 @@ final class AppServiceProvider extends ServiceProvider
         $this->app->bind(GetTags::class, fn (): SheetAccess => new GetTags($sheet()));
         $this->app->bind(GetVersions::class, fn (): SheetAccess => new GetVersions($sheet()));
         $this->app->bind(GetUpdateInfos::class, fn (): SheetAccess => new GetUpdateInfos($sheet()));
-        $this->app->bind(SaveJson::class, fn (): SaveJson => new SaveJson(Storage::disk('public')));
+        $this->app->bind(PutJson::class, fn (): PutJson => new PutJson(Storage::disk('public')));
+        $this->app->bind(LoadJson::class, fn (): LoadJson => new LoadJson(Storage::disk('public')));
         $this->app->bind(EnsureTokenIsValid::class, fn (): EnsureTokenIsValid => new EnsureTokenIsValid(Config::string('google.sync_token')));
     }
 }

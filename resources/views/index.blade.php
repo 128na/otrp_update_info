@@ -1,5 +1,5 @@
 @extends('layout')
 
 @section('content')
-<livewire:pages />
+<livewire:info />
 @endsection

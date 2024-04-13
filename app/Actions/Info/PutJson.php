@@ -7,7 +7,7 @@ namespace App\Actions\Info;
 use Exception;
 use Illuminate\Contracts\Filesystem\Filesystem;
 
-final readonly class SaveJson
+final readonly class PutJson
 {
     public function __construct(private Filesystem $filesystem)
     {

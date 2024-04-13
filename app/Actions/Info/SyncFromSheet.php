@@ -15,14 +15,14 @@ final readonly class SyncFromSheet
         private GetTags $getTags,
         private GetUpdateInfos $getUpdateInfos,
         private BuildData $buildData,
-        private SaveJson $saveJson,
+        private PutJson $putJson,
     ) {
 
     }
 
     public function __invoke(): void
     {
-        ($this->saveJson)(($this->buildData)(
+        ($this->putJson)(($this->buildData)(
             ($this->getVersions)(),
             ($this->getTags)(),
             ($this->getUpdateInfos)(),

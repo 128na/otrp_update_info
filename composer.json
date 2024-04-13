@@ -11,6 +11,7 @@
         "php": "^8.3",
         "laravel/framework": "^11.3.1",
         "laravel/tinker": "^2.9",
+        "livewire/livewire": "^3.4",
         "revolution/laravel-google-sheets": "^6.3.2"
     },
     "require-dev": {
