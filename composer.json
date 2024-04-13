@@ -10,7 +10,8 @@
     "require": {
         "php": "^8.3",
         "laravel/framework": "^11.0",
-        "laravel/tinker": "^2.9"
+        "laravel/tinker": "^2.9",
+        "revolution/laravel-google-sheets": "^6.3"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^3.0",
@@ -78,6 +79,7 @@
         }
     },
     "config": {
+        "process-timeout": 3000,
         "optimize-autoloader": true,
         "preferred-install": "dist",
         "sort-packages": true,

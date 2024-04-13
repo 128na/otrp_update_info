@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use App\Actions\Info\Sheet\SheetAccess;
 use Illuminate\Support\ServiceProvider;
+use Revolution\Google\Sheets\Facades\Sheets;
 
 final class AppServiceProvider extends ServiceProvider
 {
@@ -14,7 +16,11 @@ final class AppServiceProvider extends ServiceProvider
     #[\Override]
     public function register(): void
     {
-        //
+        $this->app->bind(SheetAccess::class, function () {
+            return new SheetAccess(
+                Sheets::spreadsheet(config('google.sheet_id'))
+            );
+        });
     }
 
     /**
