@@ -15,10 +15,10 @@ final readonly class BuildData
     }
 
     /**
-     * @param  Collection<int,array{id:string,version:string,released_at:string,url:string}>  $versions
-     * @param  Collection<int,array{id:string,name:string,description:string}>  $tags
-     * @param  Collection<int,array{id:string,version:string,tags:array<int,string>,content:string}>  $updateInfos
-     * @return array{versions:Collection<int,array{id:string,version:string,released_at:string,url:string,update_info:array<int,array{id:string,version:string,tags:array<int,array{id:string,name:string,description:string}>,content:string}>}>,tags:Collection<int,array{id:string,name:string,description:string}>,last_modified_at:string}
+     * @param  Collection<int,array{version:string,released_at:string,url:string}>  $versions
+     * @param  Collection<int,array{name:string}>  $tags
+     * @param  Collection<int,array{version:string,tags:array<int,string>,content:string}>  $updateInfos
+     * @return array{versions:Collection<int,array{version:string,released_at:string,url:string,update_info:array<int,array{version:string,tags:array<int,array{name:string}>,content:string}>}>,tags:Collection<int,array{name:string}>,last_modified_at:string}
      */
     public function __invoke(Collection $versions, Collection $tags, Collection $updateInfos): array
     {
@@ -29,10 +29,10 @@ final readonly class BuildData
         });
 
         /**
-         * @var Collection<int,array{id:string,version:string,released_at:string,url:string,update_info:array<int,array{id:string,version:string,tags:array<int,array{id:string,name:string,description:string}>,content:string}>}>
+         * @var Collection<int,array{version:string,released_at:string,url:string,update_info:array<int,array{version:string,tags:array<int,array{name:string}>,content:string}>}>
          */
         $versions = $versions->map(function (array $v) use ($updateInfos): array {
-            $v['released_at'] = Carbon::hasFormat($v['released_at'], 'Y/m/d') ? Carbon::createFromFormat('Y/m/d', $v['released_at'])?->toISOString() ?? '' : '';
+            $v['released_at'] = Carbon::hasFormat($v['released_at'], 'Y/m/d') ? Carbon::createFromFormat('Y/m/d', $v['released_at'])?->startOfDay()->toISOString() ?? '' : '';
             $v['update_info'] = $updateInfos->filter(fn (array $u): bool => $v['version'] === $u['version'])->all();
 
             return $v;
