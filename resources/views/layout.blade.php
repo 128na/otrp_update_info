@@ -6,8 +6,8 @@
 
         <title>@yield('title') {{ config('app.name') }}</title>
 
-        <meta name="description" content="このサイトでは Simutrans Japan, Simutrans的な実験室, Simutrans Addon Portal に投稿されているアドオンをまとめて検索できます。">
-        <meta name="keywords" content="Simutrans,Addon,シムトランス,アドオン,pak,pak128,pak128.japan">
+        <meta name="description" content="Simutransの派生版、OTRP(One way Two lanes Road Project)の更新情報をまとめたサイトです。">
+        <meta name="keywords" content="Simutrans, OTRP, One way Two lanes Road Project, 更新情報">
         <meta name="author" content="128Na">
 
         <meta property="og:title" content="{{ config('app.name') }}">
@@ -15,7 +15,7 @@
         <meta property="og:url" content="{{ url('/') }}">
         <meta property="og:image" content="{{ url('/icon.png') }}">
         <meta property="og:site_name" content="{{ config('app.name') }}">
-        <meta property="og:description" content="このサイトでは Simutrans Japan, Simutrans的な実験室, Simutrans Addon Portal に投稿されているアドオンをまとめて検索できます。">
+        <meta property="og:description" content="Simutransの派生版、OTRP(One way Two lanes Road Project)の更新情報をまとめたサイトです。">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <meta name="twitter:card" content="summary">

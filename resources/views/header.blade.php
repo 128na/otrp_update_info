@@ -6,14 +6,22 @@
             </a>
             <div class=" justify-between items-center w-full md:flex md:w-auto md:order-1">
                 <ul class="flex flex-col mt-4 font-medium md:flex-row md:space-x-8 md:mt-0">
-                    {{-- <li>
+                    <li>
                         <a
-                            href="/feed"
+                            href="https://github.com/teamhimeh/simutrans/releases"
                             target="_blank"
                             rel="noopener noreferrer"
                             class="block p-2 text-gray-700 dark:text-white"
-                        >Feed</a>
-                    </li> --}}
+                        >Download</a>
+                    </li>
+                    <li>
+                        <a
+                            href="https://github.com/teamhimeh/simutrans/blob/OTRP-distribute/documentation/OTRP_v13_information.md"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="block p-2 text-gray-700 dark:text-white"
+                        >Doc</a>
+                    </li>
                     <li>
                         <a
                             href="https://simutrans-intro.notion.site/API-2cbb6813417b4b2f80c27392b4d6b3d2#3a08260b0bdd4f9ab6f887123704332e"
