@@ -8,9 +8,9 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-final class EnsureTokenIsValid
+final readonly class EnsureTokenIsValid
 {
-    public function __construct(private readonly string $token)
+    public function __construct(private string $token)
     {
     }
 

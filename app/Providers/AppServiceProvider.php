@@ -35,11 +35,4 @@ final class AppServiceProvider extends ServiceProvider
         $this->app->bind(SaveJson::class, fn (): SaveJson => new SaveJson(Storage::disk('public')));
         $this->app->bind(EnsureTokenIsValid::class, fn (): EnsureTokenIsValid => new EnsureTokenIsValid(Config::string('google.sync_token')));
     }
-
-    /**
-     * Bootstrap any application services.
-     */
-    public function boot(): void
-    {
-    }
 }

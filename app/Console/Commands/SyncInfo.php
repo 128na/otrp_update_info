@@ -30,8 +30,8 @@ final class SyncInfo extends Command
     {
         try {
             $syncFromSheet();
-        } catch (\Throwable $th) {
-            report($th);
+        } catch (\Throwable $throwable) {
+            report($throwable);
 
             return self::FAILURE;
         }
