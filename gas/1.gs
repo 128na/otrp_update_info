@@ -7,7 +7,7 @@
  * シートデータの抽出
  */
 function getData(sheetName) {
-  var sheet = SpreadsheetApp.getActive().getSheetByName(sheetName);
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(sheetName);
   var rows = sheet.getDataRange().getValues();
   var keys = rows.splice(0, 1)[0];
 
@@ -83,7 +83,7 @@ function sendDataOnChange() {
     muteHttpExceptions: false,
   };
 
-  var url = 'http://simutrans.sakura.ne.jp/otrp_update_info/api/receiver';
+  var url = 'https://otrp-info.128-bit.net/api/receiver';
 
   UrlFetchApp.fetch(url, options);
 }

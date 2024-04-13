@@ -10,20 +10,18 @@
     "production": "mix --production"
   },
   "devDependencies": {
-    "axios": "^1.5.1",
-    "bootstrap": "^4.6.0",
-    "bootstrap-vue": "^2.21.0",
+    "axios": "^1.6.8",
+    "bootstrap": "^4.6",
+    "bootstrap-vue": "^2.23",
     "cross-env": "^7",
-    "jquery": "^3.7.1",
     "laravel-mix": "^6",
     "luxon": "^3.4.2",
-    "popper.js": "^1.16.1",
     "resolve-url-loader": "^5",
-    "sass": "^1.69.0",
+    "sass": "^1.75",
     "sass-loader": "^13",
-    "vue": "^2.6.11",
-    "vue-gtm": "^2.3.1",
-    "vue-loader": "^15.10.2",
-    "vue-template-compiler": "^2.6.11"
+    "vue": "^2.6",
+    "vue-gtm": "^2.3",
+    "vue-loader": "^15.10",
+    "vue-template-compiler": "^2.6"
   }
 }
