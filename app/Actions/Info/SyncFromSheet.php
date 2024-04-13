@@ -8,19 +8,19 @@ use App\Actions\Info\Sheet\GetTags;
 use App\Actions\Info\Sheet\GetUpdateInfos;
 use App\Actions\Info\Sheet\GetVersions;
 
-final class SyncFromSheet
+final readonly class SyncFromSheet
 {
     public function __construct(
-        private readonly GetVersions $getVersions,
-        private readonly GetTags $getTags,
-        private readonly GetUpdateInfos $getUpdateInfos,
-        private readonly BuildData $buildData,
-        private readonly SaveJson $saveJson,
+        private GetVersions $getVersions,
+        private GetTags $getTags,
+        private GetUpdateInfos $getUpdateInfos,
+        private BuildData $buildData,
+        private SaveJson $saveJson,
     ) {
 
     }
 
-    public function __invoke()
+    public function __invoke(): void
     {
         ($this->saveJson)(($this->buildData)(
             ($this->getVersions)(),

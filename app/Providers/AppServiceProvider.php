@@ -16,11 +16,9 @@ final class AppServiceProvider extends ServiceProvider
     #[\Override]
     public function register(): void
     {
-        $this->app->bind(SheetAccess::class, function () {
-            return new SheetAccess(
-                Sheets::spreadsheet(config('google.sheet_id'))
-            );
-        });
+        $this->app->bind(SheetAccess::class, fn(): \App\Actions\Info\Sheet\SheetAccess => new SheetAccess(
+            Sheets::spreadsheet(config('google.sheet_id'))
+        ));
     }
 
     /**

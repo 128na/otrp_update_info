@@ -15,7 +15,7 @@ final class GetTags extends SheetAccess
          */
         $items = $this->getItems('Tags', 'A:C');
 
-        return $items->map(fn ($item) => [
+        return $items->map(fn ($item): array => [
             'id' => $item[0] ?? '',
             'name' => $item[1] ?? '',
             'description' => $item[2] ?? '',

@@ -13,7 +13,7 @@ final class GetUpdateInfos extends SheetAccess
          */
         $items = $this->getItems('UpdateInfo', 'A:F');
 
-        return $items->map(fn ($item) => [
+        return $items->map(fn ($item): array => [
             'id' => $item[0] ?? '',
             'version' => $item[1] ?? '',
             'tags' => array_filter([$item[2] ?? '', $item[3] ?? '', $item[4] ?? '']),

@@ -26,7 +26,7 @@ final class SyncInfo extends Command
     /**
      * Execute the console command.
      */
-    public function handle(SyncFromSheet $syncFromSheet)
+    public function handle(SyncFromSheet $syncFromSheet): void
     {
         $syncFromSheet();
     }
