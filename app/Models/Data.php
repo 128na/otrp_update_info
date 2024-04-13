@@ -9,7 +9,7 @@ class Data
     /**
      * ストレージからjson文字列を取得し、配列に変換して返す
      *
-     * @param  string|int  $version api version
+     * @param  string|int  $version  api version
      * @return array
      */
     public static function get($version = 1)
@@ -26,7 +26,7 @@ class Data
      * json文字列を加工、ストレージに保存する
      *
      * @param  array  $data
-     * @param  string|int  $version api version
+     * @param  string|int  $version  api version
      */
     public static function put($data, $version = 1)
     {
@@ -49,20 +49,20 @@ class Data
 
         $versions = $versions->map(function ($version) use ($tags, $update_info) {
             $version['update_info'] = $update_info
-        ->filter(function ($info) use ($version) {
-            return $version['id'] === $info['version'];
-        })
-        ->map(function ($info) use ($tags) {
-            $info['tags'] = collect($info['tags'])
-            ->map(function ($tag_id) use ($tags) {
-                return $tags->first(function ($tag) use ($tag_id) {
-                    return $tag['id'] == $tag_id;
-                });
-            });
+                ->filter(function ($info) use ($version) {
+                    return $version['id'] === $info['version'];
+                })
+                ->map(function ($info) use ($tags) {
+                    $info['tags'] = collect($info['tags'])
+                        ->map(function ($tag_id) use ($tags) {
+                            return $tags->first(function ($tag) use ($tag_id) {
+                                return $tag['id'] == $tag_id;
+                            });
+                        });
 
-            return $info;
-        })
-        ->values();
+                    return $info;
+                })
+                ->values();
 
             return $version;
         });
