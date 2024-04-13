@@ -8,17 +8,17 @@ use Illuminate\Support\Collection;
 
 final class GetTags extends SheetAccess
 {
+    /**
+     * @return Collection<int,array{id:string,name:string,description:string}>
+     */
     public function __invoke(): Collection
     {
-        /**
-         * @var Collection<int,string[3]>
-         */
         $items = $this->getItems('Tags', 'A:C');
 
-        return $items->map(fn ($item): array => [
-            'id' => $item[0] ?? '',
-            'name' => $item[1] ?? '',
-            'description' => $item[2] ?? '',
+        return $items->map(fn (array $item): array => [
+            'id' => $this->pick($item, 0),
+            'name' => $this->pick($item, 1),
+            'description' => $this->pick($item, 2),
         ]);
     }
 }

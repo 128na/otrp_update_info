@@ -21,13 +21,21 @@ final class SyncInfo extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Sync from google spreadsheet';
 
     /**
      * Execute the console command.
      */
-    public function handle(SyncFromSheet $syncFromSheet): void
+    public function handle(SyncFromSheet $syncFromSheet): int
     {
-        $syncFromSheet();
+        try {
+            $syncFromSheet();
+        } catch (\Throwable $th) {
+            report($th);
+
+            return self::FAILURE;
+        }
+
+        return self::SUCCESS;
     }
 }

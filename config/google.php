@@ -11,6 +11,7 @@ return [
     'application_name' => env('GOOGLE_APPLICATION_NAME', ''),
 
     'sheet_id' => env('GOOGLE_SHEET_ID', ''),
+    'sync_token' => env('GOOGLE_SYNC_TOKEN', ''),
 
     /*
     |----------------------------------------------------------------------------
