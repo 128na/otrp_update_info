@@ -13,16 +13,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: .env
         run: php -r "copy('.env.ci', '.env');"
       - name: PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: "8"
+          php-version: "8.0"
       - name: Cache vendor
         id: cache-composer
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         env:
           cache-name: cache-vendor
         with:
@@ -42,13 +42,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: .env
         run: php -r "copy('.env.ci', '.env');"
 
       - name: Cache build assets
         id: cache-assets
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         env:
           cache-name: cache-assets
         with:
@@ -59,7 +59,7 @@ jobs:
 
       - name: Setup Node
         if: steps.cache-assets.outputs.cache-hit != 'true'
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
       - name: npm ci
         if: steps.cache-assets.outputs.cache-hit != 'true'
         run: npm ci
@@ -70,10 +70,10 @@ jobs:
       - name: PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: "8"
+          php-version: "8.3"
       - name: PHP vendor Cache
         id: cache-vendor
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ./vendor
           key: ${{ runner.os }}-cache-vendor-${{ hashFiles('**/composer.lock') }}
@@ -100,15 +100,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: .env
         run: php -r "copy('.env.deploy', '.env');"
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
       - name: Cache node modules
         id: cache-node-modules
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         env:
           cache-name: cache-node-modules
         with:
