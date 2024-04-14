@@ -21,7 +21,7 @@
         <meta name="twitter:card" content="summary">
 
         <link rel="canonical" href="{{ url('/') }}">
-        <link rel="shortcut icon" href="{{ url('/favicon.ico') }}" type="image/vnd.microsoft.ico" />
+        <link rel="shortcut icon" href="{{ url('/favicon.png') }}"/>
 
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
