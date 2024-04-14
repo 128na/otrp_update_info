@@ -3,11 +3,12 @@
         <div class="mx-auto max-w-screen-md">
             <div class="mb-2">
                 @foreach ($tags as $index => $tag)
-                <livewire:button
-                    :$tag
-                    :selected="$this->selected($tag)"
+                <button
+                    type="button"
+                    class="focus:outline-none focus:ring-4 font-medium rounded-lg text-sm py-1 px-2 me-1 my-1 {{ $this->tagClass($tag) }}"
                     :key="'tl_'.$index"
-                />
+                    wire:click="tagClick('{{ $tag }}')"
+                >{{$tag}}</button>
                 @endforeach
                 <div class="inline-flex rounded-md shadow-sm" role="group">
                     <input
@@ -39,11 +40,12 @@
                 @foreach ($version['update_info'] as $ui => $info)
                 <div wire:key="{{ $ui }}">
                     @foreach ($info['tags'] as $ti => $tag)
-                    <livewire:button
-                        :$tag
-                        :selected="$this->selected($tag)"
+                    <button
+                        type="button"
+                        class="focus:outline-none focus:ring-4 font-medium rounded-lg text-sm py-1 px-2 me-1 my-1 {{ $this->tagClass($tag) }}"
                         :key="'ti_'.$vi.'_'.$ui.'_'.$ti"
-                    />
+                        wire:click="tagClick('{{ $tag }}')"
+                    >{{$tag}}</button>
                     @endforeach
                     <span
                         class="dark:text-white"
