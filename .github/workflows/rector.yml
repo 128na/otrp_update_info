@@ -8,7 +8,7 @@ on:
 jobs:
   rector:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.head.repo.full_name == '128na/SimutransCrossSearch'
+    if: github.event.pull_request.head.repo.full_name == '128na/otrp_update_info'
     steps:
       - if: github.event.pull_request.head.repo.full_name == github.repository
         uses: actions/checkout@v4
