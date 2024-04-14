@@ -27,13 +27,13 @@ final readonly class BuildData
          */
         $versions = $versions->map(function (array $v) use ($updateInfos): array {
             $v['released_at'] = Carbon::hasFormat($v['released_at'], 'Y/m/d') ? Carbon::createFromFormat('Y/m/d', $v['released_at'])?->toDateString() ?? '' : '';
-            $v['update_info'] = $updateInfos->filter(fn (array $u): bool => $v['version'] === $u['version'])->all();
+            $v['update_info'] = $updateInfos->filter(fn (array $u): bool => $v['version'] === $u['version'])->values();
 
             return $v;
         });
 
         return [
-            'versions' => $versions->sortByDesc('released_at'),
+            'versions' => $versions->sortByDesc('released_at')->values(),
             'tags' => $tags,
             'last_modified_at' => $this->now->toDateTimeString(),
         ];
