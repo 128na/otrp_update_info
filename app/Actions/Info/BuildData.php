@@ -33,7 +33,7 @@ final readonly class BuildData
         });
 
         return [
-            'versions' => $versions,
+            'versions' => $versions->sortByDesc('released_at'),
             'tags' => $tags,
             'last_modified_at' => $this->now->toDateTimeString(),
         ];
