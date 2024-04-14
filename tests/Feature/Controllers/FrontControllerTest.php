@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\Controllers;
+namespace Tests\Feature\Controllers;
 
 use Illuminate\Support\Facades\Storage;
 use Tests\TestCase;
