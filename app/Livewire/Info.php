@@ -6,6 +6,7 @@ namespace App\Livewire;
 
 use App\Actions\Info\LoadJson;
 use Illuminate\View\View;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 final class Info extends Component
@@ -24,6 +25,26 @@ final class Info extends Component
             'tags' => $data['tags'],
             'last_modified_at' => $data['last_modified_at'],
         ]);
+    }
+
+    public function selected(string $tag): bool
+    {
+        return in_array($tag, $this->selectdTags, true);
+    }
+
+    public function clear(): void
+    {
+        $this->reset('keyword', 'selectdTags');
+    }
+
+    #[On('toggleTag')]
+    public function tagClick(string $tag): void
+    {
+        if ($this->selected($tag)) {
+            $this->selectdTags = array_values(array_filter($this->selectdTags, fn ($t): bool => $tag !== $t));
+        } else {
+            $this->selectdTags[] = $tag;
+        }
     }
 
     /**
@@ -46,7 +67,7 @@ final class Info extends Component
                     return true;
                 }
 
-                return mb_stripos((string) $info['content'], $this->keyword) !== false;
+                return mb_stripos($info['content'], $this->keyword) !== false;
             });
 
             return $version;

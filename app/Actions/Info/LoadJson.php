@@ -6,6 +6,7 @@ namespace App\Actions\Info;
 
 use Exception;
 use Illuminate\Contracts\Filesystem\Filesystem;
+use JsonName;
 
 final readonly class LoadJson
 {
@@ -18,7 +19,7 @@ final readonly class LoadJson
      */
     public function __invoke(): array
     {
-        $str = $this->filesystem->get('info.json');
+        $str = $this->filesystem->get(JsonName::INFO);
         if (! $str) {
             throw new Exception('file get failed');
         }

@@ -6,6 +6,7 @@ namespace App\Actions\Info;
 
 use Exception;
 use Illuminate\Contracts\Filesystem\Filesystem;
+use JsonName;
 
 final readonly class PutJson
 {
@@ -20,6 +21,6 @@ final readonly class PutJson
             throw new Exception('json_encode failed');
         }
 
-        $this->filesystem->put('info.json', $str);
+        $this->filesystem->put(JsonName::INFO, $str);
     }
 }

@@ -9,89 +9,44 @@ on:
   pull_request:
     branches: [master]
 jobs:
-  pint:
+  stan:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: .env
         run: php -r "copy('.env.ci', '.env');"
-      - name: PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: "8.3"
-      - name: Cache vendor
-        id: cache-composer
-        uses: actions/cache@v4
-        env:
-          cache-name: cache-vendor
-        with:
-          path: ./vendor
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('./composer.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-      - name: Composer Install
-        if: ${{ steps.cache-composer.outputs.cache-hit != 'true' }}
-        run: composer install
-      - name: pint
-        run: composer run pint:check
+
+      - uses: ./.github/actions/php
+
+      - name: Run PHP Stan
+        run: composer run stan
 
   test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        test_suite: [Unit, Feature]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: .env
         run: php -r "copy('.env.ci', '.env');"
 
-      - name: Cache build assets
-        id: cache-assets
-        uses: actions/cache@v4
-        env:
-          cache-name: cache-assets
-        with:
-          path: ./public
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('./package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
+      - uses: ./.github/actions/php
+      - uses: ./.github/actions/mysql
 
-      - name: Setup Node
-        if: steps.cache-assets.outputs.cache-hit != 'true'
-        uses: actions/setup-node@v4
-      - name: npm ci
-        if: steps.cache-assets.outputs.cache-hit != 'true'
-        run: npm ci
-      - name: Build Assets
-        if: steps.cache-assets.outputs.cache-hit != 'true'
-        run: npm run prod
-
-      - name: PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: "8.3"
-      - name: PHP vendor Cache
-        id: cache-vendor
-        uses: actions/cache@v4
-        with:
-          path: ./vendor
-          key: ${{ runner.os }}-cache-vendor-${{ hashFiles('**/composer.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-cache-vendor-
-      - name: Composer Install
-        if: steps.cache-vendor.outputs.cache-hit != 'true'
-        run: composer install
-      - name: Start MySQL
-        run: sudo /etc/init.d/mysql start
-      - name: Setup database
-        run: mysql -uroot -h127.0.0.1 -proot -e 'CREATE DATABASE IF NOT EXISTS test'
       - name: Test
-        run: php artisan test -v --env=local
+        run: php artisan test --env=local --testsuite=${{ matrix.test_suite }}
 
-      - if: failure()
-        name: Display Error Log
-        run: "[ -e storage/logs/laravel.log ] && cat storage/logs/laravel.log || echo 'no log file.'"
+      - name: Upload Laravel Logs
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: TestLaravelLog-${{ matrix.test_suite }}
+          path: storage/logs
 
   deploy:
     # tag push -> テスト通過後デプロイ
@@ -101,32 +56,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: .env
-        run: php -r "copy('.env.deploy', '.env');"
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-      - name: Cache node modules
-        id: cache-node-modules
-        uses: actions/cache@v4
-        env:
-          cache-name: cache-node-modules
-        with:
-          path: ./node_modules
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('./package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-      - name: npm ci
-        if: steps.cache-node-modules.outputs.cache-hit != 'true'
-        run: npm ci
-      - name: Build Assets
-        run: npm run prod
 
       - name: Install SSH key
-        run: mkdir -p ~/.ssh \
-          && echo "${{secrets.SSH_KEY}}" > ~/.ssh/id_rsa \
-          && chmod 0600 ~/.ssh/id_rsa \
-          && echo "${{secrets.KNOWN_HOSTS}}" >> ~/.ssh/known_hosts
+        run: >
+          mkdir -p ~/.ssh
+          && echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
+          && chmod 0600 ~/.ssh/id_rsa
+          && echo "${{ secrets.KNOWN_HOSTS }}" >> ~/.ssh/known_hosts
 
       - name: Deploy
         run: >
@@ -134,11 +70,9 @@ jobs:
           cd ${{ secrets.APP_DIR }}
           && git fetch -p
           && git checkout ${{ github.ref }}
+          && bash -c 'sed -i ".bak" "s/APP_VERSION=.*/APP_VERSION=$( git describe --tags --abbrev=0 )/" .env'
           && php -c ~/www/php.ini ~/bin/composer.phar install --optimize-autoloader --no-dev
           && php -c ~/www/php.ini artisan optimize:clear
           && php -c ~/www/php.ini artisan optimize
           && php -c ~/www/php.ini artisan event:cache
           && php -c ~/www/php.ini artisan view:cache"
-
-      - name: rsync assets
-        run: rsync -ah -e "ssh -i /home/runner/.ssh/id_rsa" ./public/ ${{ secrets.USER }}@${{ secrets.HOST }}:${{ secrets.APP_DIR }}/public
