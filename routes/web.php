@@ -1,15 +1,12 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-Route::middleware(['cache.headers:public;max_age=3600'])->group(function () {
-    Route::get('/', 'MainController@index')->name('idnex');
-});
+declare(strict_types=1);
+
+use App\Http\Controllers\FrontController;
+use App\Http\Controllers\ManualSyncController;
+use App\Http\Middleware\EnsureTokenIsValid;
+use Illuminate\Support\Facades\Route;
+
+Route::get('/', FrontController::class);
+Route::get('/sync', (new ManualSyncController())->index(...))->middleware(EnsureTokenIsValid::class);
+Route::post('/sync', (new ManualSyncController())->update(...))->middleware(EnsureTokenIsValid::class);
