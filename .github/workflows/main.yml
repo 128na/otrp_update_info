@@ -74,5 +74,4 @@ jobs:
           && php -c ~/www/php.ini ~/bin/composer.phar install --optimize-autoloader --no-dev
           && php -c ~/www/php.ini artisan optimize:clear
           && php -c ~/www/php.ini artisan optimize
-          && php -c ~/www/php.ini artisan event:cache
-          && php -c ~/www/php.ini artisan view:cache"
+          && php -c ~/www/php.ini artisan app:sync-info"
