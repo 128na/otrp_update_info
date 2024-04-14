@@ -24,7 +24,7 @@
                 </div>
             </div>
 
-            @foreach ($versions as $vi => $version)
+            @forelse  ($versions as $vi => $version)
             <div class="mb-2" wire:key="{{ $vi }}">
                 <div>
                     <span class="font-bold text-xl dark:text-white">v{{$version['version']}}</span>
@@ -51,7 +51,9 @@
                 </div>
                 @endforeach
             </div>
-            @endforeach
+            @empty
+                <div>該当なし</div>
+            @endforelse
         </div>
     </section>
     <footer>

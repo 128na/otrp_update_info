@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Livewire;
 
+use App\Actions\Info\FailedException;
 use App\Actions\Info\LoadJson;
 use Illuminate\View\View;
 use Livewire\Attributes\On;
@@ -18,13 +19,21 @@ final class Info extends Component
 
     public function render(LoadJson $loadJson): View
     {
-        $data = $loadJson();
+        try {
+            $data = $loadJson();
 
-        return view('livewire.info', [
-            'versions' => $this->filter($data['versions']),
-            'tags' => $data['tags'],
-            'last_modified_at' => $data['last_modified_at'],
-        ]);
+            return view('livewire.info', [
+                'versions' => $this->filter($data['versions']),
+                'tags' => $data['tags'],
+                'last_modified_at' => $data['last_modified_at'],
+            ]);
+        } catch (FailedException) {
+            return view('livewire.info', [
+                'versions' => [],
+                'tags' => [],
+                'last_modified_at' => '',
+            ]);
+        }
     }
 
     public function selected(string $tag): bool

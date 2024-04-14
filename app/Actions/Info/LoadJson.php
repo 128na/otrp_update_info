@@ -4,9 +4,8 @@ declare(strict_types=1);
 
 namespace App\Actions\Info;
 
-use Exception;
+use App\Constants\JsonName;
 use Illuminate\Contracts\Filesystem\Filesystem;
-use JsonName;
 
 final readonly class LoadJson
 {
@@ -21,7 +20,7 @@ final readonly class LoadJson
     {
         $str = $this->filesystem->get(JsonName::INFO);
         if (! $str) {
-            throw new Exception('file get failed');
+            throw new FailedException('file get failed');
         }
 
         /**
@@ -29,7 +28,7 @@ final readonly class LoadJson
          */
         $data = json_decode($str, true);
         if (! $data) {
-            throw new Exception('json_decode failed');
+            throw new FailedException('json_decode failed');
         }
 
         return $data;
