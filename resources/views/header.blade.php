@@ -16,11 +16,11 @@
                     </li>
                     <li>
                         <a
-                            href="https://github.com/teamhimeh/simutrans/blob/OTRP-distribute/documentation/OTRP_v13_information.md"
+                            href="https://github.com/teamhimeh/simutrans/wiki/OTRP-Home"
                             target="_blank"
                             rel="noopener noreferrer"
                             class="block p-2 text-gray-700 dark:text-white"
-                        >Doc</a>
+                        >Wiki</a>
                     </li>
                     <li>
                         <a
