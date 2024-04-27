@@ -11,8 +11,10 @@ final class FrontController extends Controller
 {
     public function __invoke(LoadJson $loadJson): View
     {
-        return view('index', [
-            'data' => $loadJson(),
-        ]);
+        try {
+            return view('index', ['data' => $loadJson()]);
+        } catch (\Throwable) {
+            return view('index', ['data' => ['versions' => [], 'tags' => [], 'last_modified_at' => '']]);
+        }
     }
 }
