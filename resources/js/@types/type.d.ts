@@ -26,22 +26,22 @@ export interface ConditionFilterArgs {
     onReset: () => void;
 }
 
-export interface TagListArgs {
-    tags: string[];
+export interface TagButtonArgs {
+    tag: string;
+    selectedTags: string[];
+    onClick: () => void;
+}
+
+
+export interface UpdateInfoArgs {
+    updateInfo: UpdateInfo;
     selectedTags: string[];
     onTagChange: (tag: string) => void;
 }
 
 
-export interface UpdateInfoListArgs {
-    updateInfo: UpdateInfo[];
-    selectedTags: string[];
-    onTagChange: (tag: string) => void;
-}
-
-
-export interface VersionListArgs {
-    versions: Version[];
+export interface VersionArgs {
+    version: Version;
     selectedTags: string[];
     onTagChange: (tag: string) => void;
 }

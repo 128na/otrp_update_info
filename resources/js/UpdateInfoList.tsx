@@ -1,14 +1,19 @@
-import { UpdateInfoListArgs } from "type";
-import { TagList } from "./TagList";
+import { UpdateInfoArgs } from "type";
+import { TagButton } from "./TagButton";
 
-export function UpdateInfoList({ updateInfo, selectedTags, onTagChange }: UpdateInfoListArgs) {
-    const updateInfoList = updateInfo.map((u, index) => {
-        return (
-            <div key={index}>
-                <TagList tags={u.tags} selectedTags={selectedTags} onTagChange={onTagChange} />
-                <span className="dark:text-white">{u.content}</span>
-            </div>
-        );
-    });
-    return (<>{updateInfoList}</>);
+export function UpdateInfo({ updateInfo, selectedTags, onTagChange }: UpdateInfoArgs) {
+    const tagList = updateInfo.tags.map((tag, index) => <TagButton
+        tag={tag}
+        selectedTags={selectedTags}
+        key={index}
+        onClick={() => onTagChange(tag)}
+    />);
+
+
+    return (
+        <div>
+            {tagList}
+            <span className="dark:text-white">{updateInfo.content}</span>
+        </div>
+    );
 }

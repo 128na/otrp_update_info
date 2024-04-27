@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { Data, Version } from 'type';
-import { VersionList } from './VersionList';
+import { Data, Version as V } from 'type';
+import { Version } from './Version';
 import { ConditionFilter } from './ConditionFilter';
 import { Footer } from './Footer';
 
 export function MainLayout({ data }: { data: Data }) {
-    const getFreshVersions = (): Version[] => JSON.parse(JSON.stringify(data.versions));
+    const getFreshVersions = (): V[] => JSON.parse(JSON.stringify(data.versions));
     const [keyword, setKeyword] = useState<string>('');
     const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
@@ -22,9 +22,9 @@ export function MainLayout({ data }: { data: Data }) {
         setKeyword('');
     };
 
-    const filtered = getFreshVersions().map(v => {
-        v.update_info = v.update_info.filter(u => {
-            const notIncludesSomeTag = selectedTags.some(st => !u.tags.includes(st));
+    const filtered = getFreshVersions().map(version => {
+        version.update_info = version.update_info.filter(updateInfo => {
+            const notIncludesSomeTag = selectedTags.some(st => !updateInfo.tags.includes(st));
             if (notIncludesSomeTag) {
                 return false;
             }
@@ -33,10 +33,17 @@ export function MainLayout({ data }: { data: Data }) {
                 return true;
             }
 
-            return u.content.includes(keyword);
+            return updateInfo.content.includes(keyword);
         });
-        return v;
-    }).filter(v => v.update_info.length > 0);
+        return version;
+    }).filter(version => version.update_info.length > 0);
+
+    const versionList = filtered.map((version, index) => (<Version
+        version={version}
+        selectedTags={selectedTags}
+        key={index}
+        onTagChange={toggleTag}
+    />));
 
     return (
         <main>
@@ -50,11 +57,7 @@ export function MainLayout({ data }: { data: Data }) {
                         onTagChange={toggleTag}
                         onReset={reset}
                     />
-                    <VersionList
-                        versions={filtered}
-                        selectedTags={selectedTags}
-                        onTagChange={toggleTag}
-                    />
+                    {versionList}
                 </div>
             </section>
             <Footer lastModifiedAt={data.last_modified_at} />

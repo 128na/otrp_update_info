@@ -1,10 +1,16 @@
 import { ConditionFilterArgs } from "type";
-import { TagList } from "./TagList";
+import { TagButton } from "./TagButton";
 
 export function ConditionFilter({ tags, selectedTags, keyword, onKeywordChange, onTagChange, onReset }: ConditionFilterArgs) {
+    const tagList = tags.map((t, index) => <TagButton
+        tag={t}
+        selectedTags={selectedTags}
+        key={index}
+        onClick={() => onTagChange(t)}
+    />);
     return (
         <div className="mb-2">
-            <TagList tags={tags} selectedTags={selectedTags} onTagChange={onTagChange} />
+            {tagList}
             <div className="inline-flex rounded-md shadow-sm" role="group">
                 <input
                     type="text"
