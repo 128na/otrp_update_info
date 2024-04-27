@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "lib": [
+            "ESNext",
+            "DOM"
+        ],
+        "jsx": "react-jsx",
+        "baseUrl": "./",
+        "paths": {
+            "*": [
+                "./resources/js/@types/*.d.ts"
+            ]
+        }
+    }
+}

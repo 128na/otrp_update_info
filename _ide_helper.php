@@ -5,7 +5,7 @@
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE
- * Generated for Laravel 11.3.1.
+ * Generated for Laravel 11.5.0.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -2889,6 +2889,33 @@ namespace Illuminate\Support\Facades {
         {
                         /** @var \Illuminate\Broadcasting\BroadcastManager $instance */
                         return $instance->socket($request);
+        }
+                    /**
+         * Begin sending an anonymous broadcast to the given channels.
+         *
+         * @static 
+         */        public static function on($channels)
+        {
+                        /** @var \Illuminate\Broadcasting\BroadcastManager $instance */
+                        return $instance->on($channels);
+        }
+                    /**
+         * Begin sending an anonymous broadcast to the given private channels.
+         *
+         * @static 
+         */        public static function private($channel)
+        {
+                        /** @var \Illuminate\Broadcasting\BroadcastManager $instance */
+                        return $instance->private($channel);
+        }
+                    /**
+         * Begin sending an anonymous broadcast to the given presence channels.
+         *
+         * @static 
+         */        public static function presence($channel)
+        {
+                        /** @var \Illuminate\Broadcasting\BroadcastManager $instance */
+                        return $instance->presence($channel);
         }
                     /**
          * Begin broadcasting an event.
@@ -10438,6 +10465,19 @@ namespace Illuminate\Support\Facades {
                         return $instance->increment($key, $decaySeconds, $amount);
         }
                     /**
+         * Decrement the counter for a given key for a given decay time by a given amount.
+         *
+         * @param string $key
+         * @param int $decaySeconds
+         * @param int $amount
+         * @return int 
+         * @static 
+         */        public static function decrement($key, $decaySeconds = 60, $amount = 1)
+        {
+                        /** @var \Illuminate\Cache\RateLimiter $instance */
+                        return $instance->decrement($key, $decaySeconds, $amount);
+        }
+                    /**
          * Get the number of attempts for the given key.
          *
          * @param string $key
@@ -11042,7 +11082,7 @@ namespace Illuminate\Support\Facades {
                         return $instance->mergeIfMissing($input);
         }
                     /**
-         * Replace the input for the current request.
+         * Replace the input values for the current request.
          *
          * @param array $input
          * @return \Illuminate\Http\Request 
@@ -16150,6 +16190,20 @@ namespace Illuminate\Support\Facades {
                         return $instance->to($path, $extra, $secure);
         }
                     /**
+         * Generate an absolute URL with the given query parameters.
+         *
+         * @param string $path
+         * @param array $query
+         * @param mixed $extra
+         * @param bool|null $secure
+         * @return string 
+         * @static 
+         */        public static function query($path, $query = [], $extra = [], $secure = null)
+        {
+                        /** @var \Illuminate\Routing\UrlGenerator $instance */
+                        return $instance->query($path, $query, $extra, $secure);
+        }
+                    /**
          * Generate a secure, absolute URL to the given path.
          *
          * @param string $path
@@ -17880,375 +17934,6 @@ namespace Illuminate\Support\Facades {
             }
     }
 
-namespace Livewire {
-            /**
-     * 
-     *
-     * @see \Livewire\LivewireManager
-     */        class Livewire {
-                    /**
-         * 
-         *
-         * @static 
-         */        public static function setProvider($provider)
-        {
-                        /** @var \Livewire\LivewireManager $instance */
-                        return $instance->setProvider($provider);
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */        public static function provide($callback)
-        {
-                        /** @var \Livewire\LivewireManager $instance */
-                        return $instance->provide($callback);
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */        public static function component($name, $class = null)
-        {
-                        /** @var \Livewire\LivewireManager $instance */
-                        return $instance->component($name, $class);
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */        public static function componentHook($hook)
-        {
-                        /** @var \Livewire\LivewireManager $instance */
-                        return $instance->componentHook($hook);
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */        public static function propertySynthesizer($synth)
-        {
-                        /** @var \Livewire\LivewireManager $instance */
-                        return $instance->propertySynthesizer($synth);
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */        public static function directive($name, $callback)
-        {
-                        /** @var \Livewire\LivewireManager $instance */
-                        return $instance->directive($name, $callback);
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */        public static function precompiler($callback)
-        {
-                        /** @var \Livewire\LivewireManager $instance */
-                        return $instance->precompiler($callback);
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */        public static function new($name, $id = null)
-        {
-                        /** @var \Livewire\LivewireManager $instance */
-                        return $instance->new($name, $id);
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */        public static function isDiscoverable($componentNameOrClass)
-        {
-                        /** @var \Livewire\LivewireManager $instance */
-                        return $instance->isDiscoverable($componentNameOrClass);
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */        public static function resolveMissingComponent($resolver)
-        {
-                        /** @var \Livewire\LivewireManager $instance */
-                        return $instance->resolveMissingComponent($resolver);
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */        public static function mount($name, $params = [], $key = null)
-        {
-                        /** @var \Livewire\LivewireManager $instance */
-                        return $instance->mount($name, $params, $key);
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */        public static function snapshot($component)
-        {
-                        /** @var \Livewire\LivewireManager $instance */
-                        return $instance->snapshot($component);
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */        public static function fromSnapshot($snapshot)
-        {
-                        /** @var \Livewire\LivewireManager $instance */
-                        return $instance->fromSnapshot($snapshot);
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */        public static function listen($eventName, $callback)
-        {
-                        /** @var \Livewire\LivewireManager $instance */
-                        return $instance->listen($eventName, $callback);
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */        public static function current()
-        {
-                        /** @var \Livewire\LivewireManager $instance */
-                        return $instance->current();
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */        public static function update($snapshot, $diff, $calls)
-        {
-                        /** @var \Livewire\LivewireManager $instance */
-                        return $instance->update($snapshot, $diff, $calls);
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */        public static function updateProperty($component, $path, $value)
-        {
-                        /** @var \Livewire\LivewireManager $instance */
-                        return $instance->updateProperty($component, $path, $value);
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */        public static function isLivewireRequest()
-        {
-                        /** @var \Livewire\LivewireManager $instance */
-                        return $instance->isLivewireRequest();
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */        public static function componentHasBeenRendered()
-        {
-                        /** @var \Livewire\LivewireManager $instance */
-                        return $instance->componentHasBeenRendered();
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */        public static function forceAssetInjection()
-        {
-                        /** @var \Livewire\LivewireManager $instance */
-                        return $instance->forceAssetInjection();
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */        public static function setUpdateRoute($callback)
-        {
-                        /** @var \Livewire\LivewireManager $instance */
-                        return $instance->setUpdateRoute($callback);
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */        public static function getUpdateUri()
-        {
-                        /** @var \Livewire\LivewireManager $instance */
-                        return $instance->getUpdateUri();
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */        public static function setScriptRoute($callback)
-        {
-                        /** @var \Livewire\LivewireManager $instance */
-                        return $instance->setScriptRoute($callback);
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */        public static function useScriptTagAttributes($attributes)
-        {
-                        /** @var \Livewire\LivewireManager $instance */
-                        return $instance->useScriptTagAttributes($attributes);
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */        public static function withUrlParams($params)
-        {
-                        /** @var \Livewire\LivewireManager $instance */
-                        return $instance->withUrlParams($params);
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */        public static function withQueryParams($params)
-        {
-                        /** @var \Livewire\LivewireManager $instance */
-                        return $instance->withQueryParams($params);
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */        public static function withCookie($name, $value)
-        {
-                        /** @var \Livewire\LivewireManager $instance */
-                        return $instance->withCookie($name, $value);
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */        public static function withCookies($cookies)
-        {
-                        /** @var \Livewire\LivewireManager $instance */
-                        return $instance->withCookies($cookies);
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */        public static function withHeaders($headers)
-        {
-                        /** @var \Livewire\LivewireManager $instance */
-                        return $instance->withHeaders($headers);
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */        public static function test($name, $params = [])
-        {
-                        /** @var \Livewire\LivewireManager $instance */
-                        return $instance->test($name, $params);
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */        public static function visit($name)
-        {
-                        /** @var \Livewire\LivewireManager $instance */
-                        return $instance->visit($name);
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */        public static function actingAs($user, $driver = null)
-        {
-                        /** @var \Livewire\LivewireManager $instance */
-                        return $instance->actingAs($user, $driver);
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */        public static function isRunningServerless()
-        {
-                        /** @var \Livewire\LivewireManager $instance */
-                        return $instance->isRunningServerless();
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */        public static function addPersistentMiddleware($middleware)
-        {
-                        /** @var \Livewire\LivewireManager $instance */
-                        return $instance->addPersistentMiddleware($middleware);
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */        public static function setPersistentMiddleware($middleware)
-        {
-                        /** @var \Livewire\LivewireManager $instance */
-                        return $instance->setPersistentMiddleware($middleware);
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */        public static function getPersistentMiddleware()
-        {
-                        /** @var \Livewire\LivewireManager $instance */
-                        return $instance->getPersistentMiddleware();
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */        public static function flushState()
-        {
-                        /** @var \Livewire\LivewireManager $instance */
-                        return $instance->flushState();
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */        public static function originalUrl()
-        {
-                        /** @var \Livewire\LivewireManager $instance */
-                        return $instance->originalUrl();
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */        public static function originalPath()
-        {
-                        /** @var \Livewire\LivewireManager $instance */
-                        return $instance->originalPath();
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */        public static function originalMethod()
-        {
-                        /** @var \Livewire\LivewireManager $instance */
-                        return $instance->originalMethod();
-        }
-            }
-    }
-
 namespace Revolution\Google\Sheets\Facades {
             /**
      * 
@@ -19087,119 +18772,6 @@ namespace Illuminate\Http {
             }
     }
 
-namespace Illuminate\Routing {
-            /**
-     * 
-     *
-     */        class Route {
-                    /**
-         * 
-         *
-         * @see \Livewire\Features\SupportLazyLoading\SupportLazyLoading::registerRouteMacro()
-         * @param mixed $enabled
-         * @static 
-         */        public static function lazy($enabled = true)
-        {
-                        return \Illuminate\Routing\Route::lazy($enabled);
-        }
-            }
-    }
-
-namespace Illuminate\View {
-            /**
-     * 
-     *
-     */        class ComponentAttributeBag {
-                    /**
-         * 
-         *
-         * @see \Livewire\Features\SupportBladeAttributes\SupportBladeAttributes::provide()
-         * @param mixed $name
-         * @static 
-         */        public static function wire($name)
-        {
-                        return \Illuminate\View\ComponentAttributeBag::wire($name);
-        }
-            }
-            /**
-     * 
-     *
-     */        class View {
-                    /**
-         * 
-         *
-         * @see \Livewire\Features\SupportPageComponents\SupportPageComponents::registerLayoutViewMacros()
-         * @param mixed $data
-         * @static 
-         */        public static function layoutData($data = [])
-        {
-                        return \Illuminate\View\View::layoutData($data);
-        }
-                    /**
-         * 
-         *
-         * @see \Livewire\Features\SupportPageComponents\SupportPageComponents::registerLayoutViewMacros()
-         * @param mixed $section
-         * @static 
-         */        public static function section($section)
-        {
-                        return \Illuminate\View\View::section($section);
-        }
-                    /**
-         * 
-         *
-         * @see \Livewire\Features\SupportPageComponents\SupportPageComponents::registerLayoutViewMacros()
-         * @param mixed $title
-         * @static 
-         */        public static function title($title)
-        {
-                        return \Illuminate\View\View::title($title);
-        }
-                    /**
-         * 
-         *
-         * @see \Livewire\Features\SupportPageComponents\SupportPageComponents::registerLayoutViewMacros()
-         * @param mixed $slot
-         * @static 
-         */        public static function slot($slot)
-        {
-                        return \Illuminate\View\View::slot($slot);
-        }
-                    /**
-         * 
-         *
-         * @see \Livewire\Features\SupportPageComponents\SupportPageComponents::registerLayoutViewMacros()
-         * @param mixed $view
-         * @param mixed $params
-         * @static 
-         */        public static function extends($view, $params = [])
-        {
-                        return \Illuminate\View\View::extends($view, $params);
-        }
-                    /**
-         * 
-         *
-         * @see \Livewire\Features\SupportPageComponents\SupportPageComponents::registerLayoutViewMacros()
-         * @param mixed $view
-         * @param mixed $params
-         * @static 
-         */        public static function layout($view, $params = [])
-        {
-                        return \Illuminate\View\View::layout($view, $params);
-        }
-                    /**
-         * 
-         *
-         * @see \Livewire\Features\SupportPageComponents\SupportPageComponents::registerLayoutViewMacros()
-         * @param callable $callback
-         * @static 
-         */        public static function response($callback)
-        {
-                        return \Illuminate\View\View::response($callback);
-        }
-            }
-    }
-
 
 namespace  {
             class App extends \Illuminate\Support\Facades\App {}
@@ -19621,6 +19193,28 @@ namespace  {
             {
                                 /** @var \Illuminate\Database\Eloquent\Builder $instance */
                                 return $instance->eagerLoadRelations($models);
+            }
+                            /**
+             * Register a closure to be invoked after the query is executed.
+             *
+             * @param \Closure $callback
+             * @return \Illuminate\Database\Eloquent\Builder|static 
+             * @static 
+             */            public static function afterQuery($callback)
+            {
+                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
+                                return $instance->afterQuery($callback);
+            }
+                            /**
+             * Invoke the "after query" modification callbacks.
+             *
+             * @param mixed $result
+             * @return mixed 
+             * @static 
+             */            public static function applyAfterQueryCallbacks($result)
+            {
+                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
+                                return $instance->applyAfterQueryCallbacks($result);
             }
                             /**
              * Get a lazy collection for the given query.
@@ -22713,7 +22307,6 @@ namespace  {
             class Validator extends \Illuminate\Support\Facades\Validator {}
             class View extends \Illuminate\Support\Facades\View {}
             class Vite extends \Illuminate\Support\Facades\Vite {}
-            class Livewire extends \Livewire\Livewire {}
             class Sheets extends \Revolution\Google\Sheets\Facades\Sheets {}
             class Flare extends \Spatie\LaravelIgnition\Facades\Flare {}
     }
