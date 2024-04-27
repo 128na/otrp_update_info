@@ -37,6 +37,7 @@ jobs:
 
       - uses: ./.github/actions/php
       - uses: ./.github/actions/mysql
+      - uses: ./.github/actions/nodejs
 
       - name: Test
         run: php artisan test --env=local --testsuite=${{ matrix.test_suite }}
@@ -56,6 +57,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - uses: ./.github/actions/nodejs
 
       - name: Install SSH key
         run: >
