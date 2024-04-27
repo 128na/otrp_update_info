@@ -38,16 +38,16 @@ export function MainLayout({ data }: { data: Data }) {
         return version;
     }).filter(version => version.update_info.length > 0);
 
-    const versionList = filtered.map((version, index) => (<Version
+    const versionList = filtered.map((version, index) => <Version
         version={version}
         selectedTags={selectedTags}
         key={index}
         onTagChange={toggleTag}
-    />));
+    />);
 
     return (
         <main>
-            <section className="px-4 lg:px-6 py-2.5 my-2.5">
+            <section className="px-4 lg:px-6 py-2.5 mb-2.5">
                 <div className="mx-auto max-w-screen-md">
                     <ConditionFilter
                         tags={data.tags}

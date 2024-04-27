@@ -10,10 +10,10 @@ export function Version({ version, selectedTags, onTagChange }: VersionArgs) {
     />);
 
     return (
-        <div className="mb-2">
+        <div className="mb-4">
             <div>
-                <span className="font-bold text-xl dark:text-white">v{version.version}</span>
-                <span className="dark:text-white">{version.released_at}</span>
+                <span className="text-2xl dark:text-white me-1">v{version.version}</span>
+                <span className="dark:text-white me-1">{version.released_at}</span>
                 <a
                     href={version.url}
                     target="_blank"

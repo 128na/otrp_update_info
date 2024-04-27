@@ -9,7 +9,7 @@ export function ConditionFilter({ tags, selectedTags, keyword, onKeywordChange, 
         onClick={() => onTagChange(t)}
     />);
     return (
-        <div className="mb-2">
+        <div className="mb-4">
             {tagList}
             <div className="inline-flex rounded-md shadow-sm" role="group">
                 <input
