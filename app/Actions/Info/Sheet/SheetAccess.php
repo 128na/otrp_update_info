@@ -9,9 +9,7 @@ use Revolution\Google\Sheets\Sheets;
 
 abstract class SheetAccess
 {
-    public function __construct(private readonly Sheets $sheets)
-    {
-    }
+    public function __construct(private readonly Sheets $sheets) {}
 
     /**
      * @return Collection<int,array<int,string>>

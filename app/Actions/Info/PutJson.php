@@ -9,9 +9,7 @@ use Illuminate\Contracts\Filesystem\Filesystem;
 
 final readonly class PutJson
 {
-    public function __construct(private Filesystem $filesystem)
-    {
-    }
+    public function __construct(private Filesystem $filesystem) {}
 
     public function __invoke(mixed $data): void
     {

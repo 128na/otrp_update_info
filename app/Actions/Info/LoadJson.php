@@ -9,9 +9,7 @@ use Illuminate\Contracts\Filesystem\Filesystem;
 
 final readonly class LoadJson
 {
-    public function __construct(private Filesystem $filesystem)
-    {
-    }
+    public function __construct(private Filesystem $filesystem) {}
 
     /**
      * @return array{versions:array<int,array{version:string,released_at:string,url:string,update_info:array<int,array{version:string,tags:array<int,string>,content:string}>}>,tags:array<int,string>,last_modified_at:string}

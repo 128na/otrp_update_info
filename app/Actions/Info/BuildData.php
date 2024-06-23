@@ -10,9 +10,7 @@ use Illuminate\Support\Collection;
 
 final readonly class BuildData
 {
-    public function __construct(private CarbonImmutable $now)
-    {
-    }
+    public function __construct(private CarbonImmutable $now) {}
 
     /**
      * @param  Collection<int,array{version:string,released_at:string,url:string}>  $versions

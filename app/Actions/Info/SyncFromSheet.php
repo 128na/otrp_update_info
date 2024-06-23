@@ -16,9 +16,7 @@ final readonly class SyncFromSheet
         private GetUpdateInfos $getUpdateInfos,
         private BuildData $buildData,
         private PutJson $putJson,
-    ) {
-
-    }
+    ) {}
 
     public function __invoke(): void
     {

@@ -10,9 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 final readonly class EnsureTokenIsValid
 {
-    public function __construct(private string $token)
-    {
-    }
+    public function __construct(private string $token) {}
 
     /**
      * Handle an incoming request.

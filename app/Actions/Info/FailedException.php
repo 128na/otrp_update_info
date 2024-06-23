@@ -6,6 +6,4 @@ namespace App\Actions\Info;
 
 use Exception;
 
-final class FailedException extends Exception
-{
-}
+final class FailedException extends Exception {}
