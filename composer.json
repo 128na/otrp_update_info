@@ -9,7 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.3",
-        "laravel/framework": "^11.11.1",
+        "laravel/framework": "^11.13.0",
         "laravel/tinker": "^2.9",
         "revolution/laravel-google-sheets": "^6.4.0"
     },
