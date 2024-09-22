@@ -20,7 +20,7 @@
         "laravel/pint": "^1.17.3",
         "mockery/mockery": "^1.6.12",
         "nunomaduro/collision": "^8.4.0",
-        "phpunit/phpunit": "^10.5.34",
+        "phpunit/phpunit": "^10.5.35",
         "rector/rector": "^1.2.5",
         "spatie/laravel-ignition": "^2.8.0"
     },
