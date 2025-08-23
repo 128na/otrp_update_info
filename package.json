@@ -8,7 +8,7 @@
     "devDependencies": {
         "@vitejs/plugin-react": "^4",
         "laravel-vite-plugin": "^1",
-        "vite": "^5"
+        "vite": "^6"
     },
     "dependencies": {
         "@types/react": "^18.3.1",
