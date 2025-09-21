@@ -17,10 +17,10 @@
         "barryvdh/laravel-ide-helper": "^3.6.0",
         "fakerphp/faker": "^1.24.1",
         "larastan/larastan": "^2.11.2",
-        "laravel/pint": "^1.24.0",
+        "laravel/pint": "^1.25.1",
         "mockery/mockery": "^1.6.12",
         "nunomaduro/collision": "^8.5.0",
-        "phpunit/phpunit": "^10.5.52",
+        "phpunit/phpunit": "^10.5.55",
         "rector/rector": "^1.2.10",
         "spatie/laravel-ignition": "^2.9.1"
     },
