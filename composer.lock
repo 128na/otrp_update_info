@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e8022ef7944dc58d330c55211e258f58",
+    "content-hash": "09c5054de8eb45c15eef733637a6d953",
     "packages": [
         {
             "name": "brick/math",
@@ -645,16 +645,16 @@
         },
         {
             "name": "google/apiclient",
-            "version": "v2.18.3",
+            "version": "v2.18.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-api-php-client.git",
-                "reference": "4eee42d201eff054428a4836ec132944d271f051"
+                "reference": "5b51fdb2cbd2a96088e3dfc6f565bdf6fb0af94b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-api-php-client/zipball/4eee42d201eff054428a4836ec132944d271f051",
-                "reference": "4eee42d201eff054428a4836ec132944d271f051",
+                "url": "https://api.github.com/repos/googleapis/google-api-php-client/zipball/5b51fdb2cbd2a96088e3dfc6f565bdf6fb0af94b",
+                "reference": "5b51fdb2cbd2a96088e3dfc6f565bdf6fb0af94b",
                 "shasum": ""
             },
             "require": {
@@ -664,7 +664,7 @@
                 "guzzlehttp/guzzle": "^7.4.5",
                 "guzzlehttp/psr7": "^2.6",
                 "monolog/monolog": "^2.9||^3.0",
-                "php": "^8.0",
+                "php": "^8.1",
                 "phpseclib/phpseclib": "^3.0.36"
             },
             "require-dev": {
@@ -708,22 +708,22 @@
             ],
             "support": {
                 "issues": "https://github.com/googleapis/google-api-php-client/issues",
-                "source": "https://github.com/googleapis/google-api-php-client/tree/v2.18.3"
+                "source": "https://github.com/googleapis/google-api-php-client/tree/v2.18.4"
             },
-            "time": "2025-04-08T21:59:36+00:00"
+            "time": "2025-09-30T04:23:07+00:00"
         },
         {
             "name": "google/apiclient-services",
-            "version": "v0.413.0",
+            "version": "v0.414.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-api-php-client-services.git",
-                "reference": "8c8f936b85a50d658c50fbfd4331cfd5144c473f"
+                "reference": "5bd542b6d9639b89b95270ae85ed3062b4ca9b8e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/8c8f936b85a50d658c50fbfd4331cfd5144c473f",
-                "reference": "8c8f936b85a50d658c50fbfd4331cfd5144c473f",
+                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/5bd542b6d9639b89b95270ae85ed3062b4ca9b8e",
+                "reference": "5bd542b6d9639b89b95270ae85ed3062b4ca9b8e",
                 "shasum": ""
             },
             "require": {
@@ -752,22 +752,22 @@
             ],
             "support": {
                 "issues": "https://github.com/googleapis/google-api-php-client-services/issues",
-                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.413.0"
+                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.414.0"
             },
-            "time": "2025-09-22T00:58:25+00:00"
+            "time": "2025-09-28T01:08:30+00:00"
         },
         {
             "name": "google/auth",
-            "version": "v1.48.0",
+            "version": "v1.48.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-auth-library-php.git",
-                "reference": "3053a5bfe284538419d4fee8c9df148488db6d30"
+                "reference": "023f41a2c80fb98a493dfb9dffcab643481a7ab0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-auth-library-php/zipball/3053a5bfe284538419d4fee8c9df148488db6d30",
-                "reference": "3053a5bfe284538419d4fee8c9df148488db6d30",
+                "url": "https://api.github.com/repos/googleapis/google-auth-library-php/zipball/023f41a2c80fb98a493dfb9dffcab643481a7ab0",
+                "reference": "023f41a2c80fb98a493dfb9dffcab643481a7ab0",
                 "shasum": ""
             },
             "require": {
@@ -813,9 +813,9 @@
             "support": {
                 "docs": "https://cloud.google.com/php/docs/reference/auth/latest",
                 "issues": "https://github.com/googleapis/google-auth-library-php/issues",
-                "source": "https://github.com/googleapis/google-auth-library-php/tree/v1.48.0"
+                "source": "https://github.com/googleapis/google-auth-library-php/tree/v1.48.1"
             },
-            "time": "2025-09-16T22:09:18+00:00"
+            "time": "2025-09-30T04:22:33+00:00"
         },
         {
             "name": "graham-campbell/result-type",
@@ -1292,16 +1292,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v11.46.0",
+            "version": "v11.46.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "2c6d85f22d08123ad45aa3a6726b16f06e68eecd"
+                "reference": "5fd457f807570a962a53b403b1346efe4cc80bb8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/2c6d85f22d08123ad45aa3a6726b16f06e68eecd",
-                "reference": "2c6d85f22d08123ad45aa3a6726b16f06e68eecd",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/5fd457f807570a962a53b403b1346efe4cc80bb8",
+                "reference": "5fd457f807570a962a53b403b1346efe4cc80bb8",
                 "shasum": ""
             },
             "require": {
@@ -1503,7 +1503,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2025-09-08T21:54:34+00:00"
+            "time": "2025-09-30T14:51:32+00:00"
         },
         {
             "name": "laravel/prompts",
@@ -7478,16 +7478,11 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.12.31",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/phpstan/phpstan-phar-composer-source.git",
-                "reference": "git1"
-            },
+            "version": "1.12.32",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/a7630bb5311a41d13a2364634c78c5f4da250d53",
-                "reference": "a7630bb5311a41d13a2364634c78c5f4da250d53",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/2770dcdf5078d0b0d53f94317e06affe88419aa8",
+                "reference": "2770dcdf5078d0b0d53f94317e06affe88419aa8",
                 "shasum": ""
             },
             "require": {
@@ -7532,7 +7527,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-09-24T15:58:55+00:00"
+            "time": "2025-09-30T10:16:31+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -7857,16 +7852,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "10.5.57",
+            "version": "10.5.58",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "8e7598bbb17bb5cd80728f4831d3f83223d3a6b3"
+                "reference": "e24fb46da450d8e6a5788670513c1af1424f16ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/8e7598bbb17bb5cd80728f4831d3f83223d3a6b3",
-                "reference": "8e7598bbb17bb5cd80728f4831d3f83223d3a6b3",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/e24fb46da450d8e6a5788670513c1af1424f16ca",
+                "reference": "e24fb46da450d8e6a5788670513c1af1424f16ca",
                 "shasum": ""
             },
             "require": {
@@ -7938,7 +7933,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.5.57"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.5.58"
             },
             "funding": [
                 {
@@ -7962,7 +7957,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-09-24T06:30:38+00:00"
+            "time": "2025-09-28T12:04:46+00:00"
         },
         {
             "name": "rector/rector",

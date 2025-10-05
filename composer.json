@@ -9,7 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.3",
-        "laravel/framework": "^11.46.0",
+        "laravel/framework": "^11.46.1",
         "laravel/tinker": "^2.10.1",
         "revolution/laravel-google-sheets": "^6.4.0"
     },
@@ -20,7 +20,7 @@
         "laravel/pint": "^1.25.1",
         "mockery/mockery": "^1.6.12",
         "nunomaduro/collision": "^8.5.0",
-        "phpunit/phpunit": "^10.5.57",
+        "phpunit/phpunit": "^10.5.58",
         "rector/rector": "^1.2.10",
         "spatie/laravel-ignition": "^2.9.1"
     },
